@@ -1,29 +1,3 @@
 @import "tailwindcss/base";
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
-
-:root {
-  /* background-color: #f1dede; */
-  height: 100%;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-}
-
-
-body {
-  margin-top: 60px;
-  height: 100%;
-  background-color: #071E3D;
-}
-
-@font-face {
-  font-family: 'politetyperegular';
-  src: url('../public/politetype-regular-webfont.woff2') format('woff2'),
-       url('../public/politetype-regular-webfont.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-
-}

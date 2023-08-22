@@ -3,7 +3,8 @@ export default {
   content: [
     "./index.html", 
     "./src/App.tsx",
-    "./src/components/home.tsx"
+    "./src/components/navbar.tsx",
+    "./src/components/sidebar.tsx"
   ],
   theme: {
     colors: {
