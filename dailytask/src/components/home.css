@@ -1,16 +1,21 @@
+@font-face {
+    font-family: 'politetyperegular';
+    src: url('../../public/politetype-regular-webfont.woff2') format('woff2'),
+         url('../../public/politetype-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+  
+}
+
 nav {
-    background-color: #f3e8e8;
-    color: #2f0404;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
-    font-size: 2em;
 }
 
 .crear {
-    background-color: #cb2626;
-    color: #f3d6d6;
     border-radius: 5px;
     font-size: 1.5em;
 }
+

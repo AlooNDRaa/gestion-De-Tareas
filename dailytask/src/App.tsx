@@ -1,4 +1,4 @@
-import { NavBar } from './components/home'
+import { NavBar, SideBar } from './components/home'
 import './App.css'
 
 function App() {
@@ -6,6 +6,12 @@ function App() {
   return (
     <>
       <NavBar/>
+      <div className="flex">
+      <SideBar/>
+      <div>
+        <h4>Content</h4>
+      </div>
+      </div>
     </>
   )
 }
