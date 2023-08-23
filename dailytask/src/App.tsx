@@ -1,10 +1,18 @@
+import { useState } from 'react';
 import { NavBar } from './components/navbar';
 import { SideBar } from './components/sidebar';
-import {FiPlus} from 'react-icons/fi';
+import { Workspace, NameWorkspace } from './components/workspace';
 
 
 
 function App() {
+
+  const [show, setShow] = useState(false);
+  const [workspaces, setWorkspaces] = useState([]);
+
+  function addWorkspace(wksp) {
+    setWorkspaces([...workspaces, {title: wksp, }])
+  }
 
   return (
     <>
@@ -18,18 +26,17 @@ function App() {
 
         </ul>
       </div>
-      <div>
+      <div className='py-3'>
         <h1>Your Workspaces</h1>
-        <div className='pl-4 py-3'>
-          <h2>Workspace 1</h2>
-          <ul className='flex py-3'>
-            <li className='w-40 h-28 bg-darkmode-azul2 rounded-m text-center flex items-center justify-center cursor-pointer'>
-              <FiPlus className='text-xl text-center'/>
-            </li>
-        </ul>
-        </div>
         
-        <h2>New workspace</h2>
+        <span className='cursor-pointer text-m my-3' onClick={() => setShow(!show)}>New workspace</span>
+
+        <NameWorkspace show={show} addWorkspace={addWorkspace}/>
+
+        {workspaces.map((wksp, index) => 
+          <Workspace title={wksp} key={index}/>
+        )}
+
       </div>
 
     </div>

@@ -25,10 +25,10 @@ function NavBar() {
                 </div>
             </nav>
             {open && (
-                <ul className='bg-darkmode-azul1 text-darkmode-verdeagua1 w-fit inline'>
-                    <li>Edit profile</li>
-                    <li>Help</li>
-                    <li>Logout</li>
+                <ul className='bg-darkmode-azul1 text-darkmode-verdeagua1 flex flex-col absolute right-0 text-m rounded-b-lg'>
+                    <li className='px-2 cursor-pointer'>Edit profile</li>
+                    <li className='px-2 cursor-pointer'>Help</li>
+                    <li className='px-2 cursor-pointer'>Logout</li>
                 </ul>
             )}
         </>

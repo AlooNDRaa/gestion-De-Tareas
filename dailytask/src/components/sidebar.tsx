@@ -34,11 +34,11 @@ function SideBar() {
     return (
         <>
         <div className={`bg-gradient-to-b from-darkmode-azul1 to-darkmode-verdeagua1 h-screen p-5 pt-8 ${open ? "w-72" : "w-20"} relative`}>
-            <RxDoubleArrowLeft className={`cursor-pointer bg-lightmode-blanco text-lightmode-azul text-3xl border border-darkmode-azul1 rounded-full p-2 absolute -right-3 top-9 ${!open && "rotate-180"}`} onClick={() => setOpen(!open)}/>
+            <RxDoubleArrowLeft className={`cursor-pointer bg-lightmode-blanco text-lightmode-azul text-3xl p-1 border border-darkmode-azul1 rounded-full absolute -right-3 top-9 ${!open && "rotate-180"}`} onClick={() => setOpen(!open)}/>
             <ul className='pt-2'>
                 { menus.map((menu, index) => (
                     <>
-                        <li key={index} className={`text-lightmode-blanco text-s flex items-center gap-x-4 cursor-pointer p-2 hover:bg-darkmode-azul2 rounded-md mt-2 ${menu.spacing ? "mt-10" : "mt-2"}`}>
+                        <li key={index} className={`text-lightmode-blanco text-s flex items-center gap-x-4 cursor-pointer p-2 hover:bg-darkmode-azul2 rounded-md mt-2 ${menu.spacing ? "mt-9" : "mt-2"}`}>
                             <span className='text-xl block float-left'>
                                 {menu.icon}
                             </span>
