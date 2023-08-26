@@ -2,17 +2,22 @@ import { useState } from 'react';
 import { NavBar } from './components/navbar';
 import { SideBar } from './components/sidebar';
 import { Workspace, NameWorkspace } from './components/workspace';
-
+import { BoardModal } from './components/board';
 
 
 function App() {
-
+  const [openModal, setOpenModal] = useState(false);
   const [show, setShow] = useState(false);
   const [workspaces, setWorkspaces] = useState([]);
 
   function addWorkspace(wksp) {
-    setWorkspaces([...workspaces, {title: wksp, }])
+    setWorkspaces([...workspaces, {title: wksp}])
   }
+
+  function deleteWorkspace(title) {
+    setWorkspaces(workspaces.filter(wksp => wksp.title !== title))
+  }
+
 
   return (
     <>
@@ -29,12 +34,14 @@ function App() {
       <div className='py-3'>
         <h1>Your Workspaces</h1>
         
-        <span className='cursor-pointer text-m my-3' onClick={() => setShow(!show)}>New workspace</span>
+        <span className='cursor-pointer text-m pt-3' onClick={() => setShow(!show)}>New workspace</span>
 
-        <NameWorkspace show={show} addWorkspace={addWorkspace}/>
+        <NameWorkspace show={show} addWorkspace={addWorkspace} close={() => setShow(!show)}/>
+
+        <BoardModal openModal={openModal} closeModal={() => setOpenModal(!openModal)}/>
 
         {workspaces.map((wksp, index) => 
-          <Workspace title={wksp} key={index}/>
+          <Workspace title={wksp} key={index} deleteWorkspace={deleteWorkspace} openModal={() => setOpenModal(!openModal)}/>
         )}
 
       </div>

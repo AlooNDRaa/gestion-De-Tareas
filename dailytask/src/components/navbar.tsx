@@ -1,8 +1,8 @@
-import {useState} from 'react';
-import {BsFillBellFill} from 'react-icons/bs';
-import {FaUser} from 'react-icons/fa';
-import {MdLightMode} from 'react-icons/md';
-import {MdDarkMode} from 'react-icons/md';
+import { useState } from 'react';
+import { BsFillBellFill } from 'react-icons/bs';
+import { FaUser } from 'react-icons/fa';
+import { MdLightMode } from 'react-icons/md';
+import { MdDarkMode } from 'react-icons/md';
 
 function NavBar() {
     const [open, setOpen] = useState(false);

@@ -4,7 +4,9 @@ export default {
     "./index.html", 
     "./src/App.tsx",
     "./src/components/navbar.tsx",
-    "./src/components/sidebar.tsx"
+    "./src/components/sidebar.tsx",
+    "./src/components/workspace.tsx",
+    "./src/components/board.tsx"
   ],
   theme: {
     colors: {

@@ -5,8 +5,8 @@ import {BsFillCalendarFill} from 'react-icons/bs';
 import { AiFillStar } from 'react-icons/ai';
 import { BsChevronDown } from 'react-icons/bs';
 import { ImShare2 } from 'react-icons/im';
-import {BsGearFill} from 'react-icons/bs';
-import {MdLogout} from 'react-icons/md';
+import { BsGearFill } from 'react-icons/bs';
+import { MdLogout } from 'react-icons/md';
 import { RxDoubleArrowLeft } from 'react-icons/rx'; 
 
 function SideBar() {
