@@ -9,8 +9,8 @@ function BoardModal({openModal, closeModal}) {
     }
     
     return (
-        <div className='flex flex-col justify-center align-center justify-items-center rounded-md px-auto bg-darkmode-verdeagua2 w-60 h-100'>
-            <button onClick={closeModal}><IoMdClose className='text-[#fff]'/></button>
+        <div className='flex flex-col justify-center align-center justify-items-center rounded-md px-auto dark:bg-darkmode-verdeagua2 w-60 h-100'>
+            <button onClick={closeModal}><IoMdClose className='dark:text-[#fff]'/></button>
             <div className='flex justify-evenly'>
                 <button><BsPersonFillAdd/></button>
                 <button><TiTick/></button>

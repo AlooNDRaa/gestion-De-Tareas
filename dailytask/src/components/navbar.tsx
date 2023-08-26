@@ -3,29 +3,33 @@ import { BsFillBellFill } from 'react-icons/bs';
 import { FaUser } from 'react-icons/fa';
 import { MdLightMode } from 'react-icons/md';
 import { MdDarkMode } from 'react-icons/md';
+import logodark from '../imgs/dailytasklogo1.png';
+import logolight from '../imgs/dailytasklogo2.png';
 
-function NavBar() {
+function NavBar({theme, changeTheme}) {
     const [open, setOpen] = useState(false);
-    const [dark, setDark] = useState(true);
+    const [icon, setIcon] = useState(true);
+
+
     return (
         <>        
-            <nav className='bg-darkmode-azul1 flex text-m font-medium py-2 justify-between leading-normal text-darkmode-verdeagua1'>
-                <div className='flex'>
-                    <img src="" alt="logo" className="px-2"/>
+            <nav className={`${theme ? 'dark:bg-darkmode-azul1' : 'bg-lightmode-blanco'} flex text-m py-2 justify-between leading-normal content-center font-medium ${theme ? 'dark:text-darkmode-verdeagua1' : 'text-lightmode-azul'}`}>
+                <div className='flex items-center'>
+                    <img src={theme ? logodark : logolight} alt="logo" className="w-30 h-10 pl-2"/>
                     <a className='px-3 cursor-pointer'>Workspaces</a>
-                    <button className='bg-darkmode-verdeagua2 text-darkmode-azul1 px-3 rounded'>Create</button>
+                    <button className={`${theme ? 'dark:bg-darkmode-verdeagua2' : 'bg-lightmode-azul'} ${theme ? 'dark:text-darkmode-azul1' : 'text-lightmode-blanco'}  px-3 rounded`}>Create</button>
                 </div>
                 
-                <div className='flex pr-2 text-xl text-darkmode-verdeagua1 flex-row'>
-                    <a className='px-2 cursor-pointer' onClick={() => setDark(!dark)}>
-                        {dark ? <MdDarkMode/> : <MdLightMode/>}
+                <div className={`flex pr-2 text-xl ${theme ? 'dark:text-darkmode-verdeagua1' : 'text-lightmode-azul'} flex-row items-center`}>
+                    <a className='px-2 cursor-pointer' onClick={() => {setIcon(!icon); changeTheme(!theme)} }>
+                        {icon ? <MdLightMode/> : <MdDarkMode/>}
                     </a>
                     <a className='px-2 cursor-pointer'><BsFillBellFill/></a>
                     <a className='px-2 cursor-pointer' onClick={() => setOpen(!open)}><FaUser/></a>
                 </div>
             </nav>
             {open && (
-                <ul className='bg-darkmode-azul1 text-darkmode-verdeagua1 flex flex-col absolute right-0 text-m rounded-b-lg'>
+                <ul className={`${theme ? 'dark:bg-darkmode-azul1' : 'bg-lightmode-blanco'} ${theme ? 'dark:text-darkmode-verdeagua1' : 'text-lightmode-azul'} flex flex-col absolute right-0 text-m rounded-b-lg`}>
                     <li className='px-2 cursor-pointer'>Edit profile</li>
                     <li className='px-2 cursor-pointer'>Help</li>
                     <li className='px-2 cursor-pointer'>Logout</li>

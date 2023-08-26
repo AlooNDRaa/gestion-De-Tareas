@@ -8,6 +8,7 @@ export default {
     "./src/components/workspace.tsx",
     "./src/components/board.tsx"
   ],
+  darkMode: "class", 
   theme: {
     colors: {
       lightmode: {

@@ -9,7 +9,7 @@ import { BsGearFill } from 'react-icons/bs';
 import { MdLogout } from 'react-icons/md';
 import { RxDoubleArrowLeft } from 'react-icons/rx'; 
 
-function SideBar() {
+function SideBar({theme}) {
     const [open, setOpen] = useState(true);
     const [submenuOpen, setSubmenuOpen] = useState(false);
 
@@ -33,12 +33,12 @@ function SideBar() {
     
     return (
         <>
-        <div className={`bg-gradient-to-b from-darkmode-azul1 to-darkmode-verdeagua1 h-screen p-5 pt-8 ${open ? "w-72" : "w-20"} relative`}>
-            <RxDoubleArrowLeft className={`cursor-pointer bg-lightmode-blanco text-lightmode-azul text-3xl p-1 border border-darkmode-azul1 rounded-full absolute -right-3 top-9 ${!open && "rotate-180"}`} onClick={() => setOpen(!open)}/>
+        <div className={`bg-gradient-to-b ${theme ? 'from-darkmode-azul1' : 'from-lightmode-blanco'} ${theme ? 'to-darkmode-verdeagua1' : 'to-lightmode-azul'} h-screen p-5 pt-8 ${open ? "w-72" : "w-20"} relative`}>
+            <RxDoubleArrowLeft className={`cursor-pointer ${theme ? 'bg-darkmode-verdeagua2' : 'bg-lightmode-azul'} ${theme ? 'text-darkmode-azul2' : 'text-lightmode-blanco'} text-3xl p-1 border dark:border-darkmode-azul1 rounded-full absolute -right-3 top-9 ${!open && "rotate-180"}`} onClick={() => setOpen(!open)}/>
             <ul className='pt-2'>
                 { menus.map((menu, index) => (
                     <>
-                        <li key={index} className={`text-lightmode-blanco text-s flex items-center gap-x-4 cursor-pointer p-2 hover:bg-darkmode-azul2 rounded-md mt-2 ${menu.spacing ? "mt-9" : "mt-2"}`}>
+                        <li key={index} className={`${theme ? 'dark:text-darkmode-verdeagua2' : 'text-lightmode-azul'} text-s flex items-center gap-x-4 cursor-pointer p-2 ${theme ? 'dark:hover:bg-darkmode-azul2/50' : 'hover:bg-lightmode-verdeagua1/75'} rounded-md mt-2 ${menu.spacing ? "mt-9" : "mt-2"}`}>
                             <span className='text-xl block float-left'>
                                 {menu.icon}
                             </span>
@@ -46,13 +46,13 @@ function SideBar() {
                                 {menu.title}
                             </span>
                             {menu.submenu && open && (
-                                <BsChevronDown className={`cursor-pointer text-lightmode-blanco  ${submenuOpen && "rotate-180"}`} onClick={() => setSubmenuOpen(!submenuOpen)}/>
+                                <BsChevronDown className={`cursor-pointer ${theme ? 'dark:text-darkmode-verdeagua2' : 'text-lightmode-azul'}  ${submenuOpen && "rotate-180"}`} onClick={() => setSubmenuOpen(!submenuOpen)}/>
                             )}
                         </li>
                         {menu.submenu && submenuOpen && open && (
                                 <ul>
                                     {menu.submenuItems.map((subitem, index) => (
-                                        <li key={index} className={`text-lightmode-blanco text-sm flex items-center gap-x-4 cursor-pointer p-2 px-5 hover:bg-darkmode-azul2 rounded-md mt-2`}>
+                                        <li key={index} className={`${theme ? 'text-darkmode-verdeagua2' : 'text-lightmode-azul'} text-sm flex items-center gap-x-4 cursor-pointer p-2 px-5 rounded-md mt-2`}>
                                             {subitem.title}
                                         </li>
                                     ))}
