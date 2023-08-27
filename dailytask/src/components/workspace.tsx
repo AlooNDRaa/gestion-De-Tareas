@@ -3,29 +3,34 @@ import { FiPlus } from 'react-icons/fi';
 import { TiTickOutline } from 'react-icons/ti';
 import { AiFillEdit } from 'react-icons/ai';
 import { MdDelete } from 'react-icons/md';
-// import { BoardHomeView } from './board';
+import { BoardModal } from './board';
+import { BoardHomeView } from './board';
 
-function Workspace({title, deleteWorkspace, openModal, theme} ) {
-    // const [boards, setBoards] = useState([]);
+function Workspace({title, deleteWorkspace, theme} ) {
+    const [boards, setBoards] = useState([]);
+    const [openModal, setOpenModal] = useState(false);
 
-    // function addBoard(name, bgcolor, collaborators) {
-    //     setBoards(...boards, {name: name, bgcolor: bgcolor, collaborators: collaborators})
-    // }
+    function addBoard(name, bgcolor) {
+        setBoards([...boards, {name: name, bgcolor: bgcolor}])
+    }
 
     return (
+        <>
+        {openModal ? <BoardModal closeModal={() => setOpenModal(!openModal)} addBoard={addBoard} theme={theme}/> : null}
         <div className='pl-4 py-3'>
             <div className='flex items-center'>
                 <h2>{title.title}</h2>
                 <span className='px-1 pl-2 cursor-pointer'><AiFillEdit className={`${theme ? 'text-darkmode-verdeagua1' : 'text-lightmode-azul'}`}/></span>
                 <span className='px-1 cursor-pointer' onClick={() => deleteWorkspace(title.title)}> <MdDelete className={`${theme ? 'text-darkmode-verdeagua1' : 'text-lightmode-azul'}`}/></span>
             </div>
-            <ul className='flex py-3 w-100%'>
-                {/* {boards.map((board, index) => <BoardHomeView name={board.name} bgcolor={board.bgcolor} collaborators={board.collaborators} key={index}/>)} */}
-                <li className={`w-40 h-28 ${theme ? 'bg-darkmode-azul1' : 'bg-lightmode-azul'} rounded-m text-center flex items-center justify-center cursor-pointer`} onClick={openModal}>
+            <ul className={`flex py-3 w-100% ${theme ? 'text-darkmode-verdeagua2' : 'text-lightmode-azul'}`}>
+                {boards.map((board, index) => <BoardHomeView name={board.name} bgcolor={board.bgcolor} key={index}/>)}
+                <li className={`w-40 h-28 ${theme ? 'bg-darkmode-azul1' : 'bg-lightmode-azul'} rounded-md text-center flex items-center justify-center cursor-pointer`} onClick={() => setOpenModal(!openModal)}>
                   <FiPlus className={`text-xl text-center ${theme ? 'text-darkmode-verdeagua1' : 'text-lightmode-blanco'}`}/>
                 </li>
             </ul>
         </div>
+        </>
     )
 }
 

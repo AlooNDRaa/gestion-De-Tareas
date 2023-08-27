@@ -2,11 +2,9 @@ import { useState } from 'react';
 import { NavBar } from './components/navbar';
 import { SideBar } from './components/sidebar';
 import { Workspace, NameWorkspace } from './components/workspace';
-import { BoardModal } from './components/board';
 
 
 function App() {
-  const [openModal, setOpenModal] = useState(false);
   const [show, setShow] = useState(false);
   const [workspaces, setWorkspaces] = useState([]);
   const [theme, setTheme] = useState(true); //true for dark (default), false for lightmode
@@ -54,10 +52,8 @@ function App() {
 
         <NameWorkspace show={show} addWorkspace={addWorkspace} close={() => setShow(!show)} theme={theme}/>
 
-        <BoardModal openModal={openModal} closeModal={() => setOpenModal(!openModal)} /*theme={theme}*//>
-
         {workspaces.map((wksp, index) => 
-          <Workspace title={wksp} key={index} deleteWorkspace={deleteWorkspace} openModal={() => setOpenModal(!openModal)}  theme={theme}/>
+          <Workspace title={wksp} key={index} deleteWorkspace={deleteWorkspace} theme={theme}/>
         )}
 
       </div>

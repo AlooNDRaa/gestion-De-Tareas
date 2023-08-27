@@ -2,9 +2,6 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-*{
-    transition: all 0.3s ease-in-out;
-}
 body {
     font-family: 'Mukta', sans-serif;
 }
