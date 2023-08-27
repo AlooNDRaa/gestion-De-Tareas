@@ -1,8 +1,7 @@
-import React from 'react'; // Don't forget to import React
 import { FaFacebookF, FaLinkedinIn, FaGoogle, FaRegEnvelope } from 'react-icons/fa';
 import { MdLockOutline } from 'react-icons/md';
 
-export default function Home() {
+export default function Login() {
   return (
     <main className="flex min-h-screen items-center justify-center p-24 text-center bg-white">
       <div className="bg-white rounded-2xl shadow-2xl flex w-2/3 max-w-4xl">

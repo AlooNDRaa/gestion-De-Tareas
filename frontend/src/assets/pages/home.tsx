@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { NavBar } from './components/navbar';
-import { SideBar } from './components/sidebar';
-import { Workspace, NameWorkspace } from './components/workspace';
+import { NavBar } from '../../../home/src/components/navbar';
+import { SideBar } from '../../../home/src/components/sidebar';
+import { Workspace, NameWorkspace } from '../../../home/src/components/workspace';
 
 
-function App() {
+function Home() {
   const [show, setShow] = useState(false);
   const [workspaces, setWorkspaces] = useState([]);
   const [theme, setTheme] = useState(true); //true for dark (default), false for lightmode
@@ -17,25 +17,12 @@ function App() {
     setWorkspaces(workspaces.filter(wksp => wksp.title !== title))
   }
 
-  function setLightMode() {
-    document.querySelector('body').setAttribute('class', 'light')
-  }
+ 
 
-  function setDarkMode() {
-    document.querySelector('body').setAttribute('class', 'dark')
-  }
-
-  function toggleTheme() {
-    if (document.body.className === 'dark') {
-      setLightMode()
-    } else {
-      setDarkMode()
-    }
-  }
 
   return (
     <>
-    <NavBar theme={theme} changeTheme={() => {setTheme(!theme); toggleTheme()}}/>
+    <NavBar theme={theme} changeTheme={() => {setTheme(!theme)}}/>
     <div className='flex'>
     <SideBar theme={theme}/>
     <div className={`p-7 ${theme ? 'dark:bg-[#031124]' : 'bg-[#dff5ed]'}  w-full ${theme ? 'dark:text-darkmode-verdeagua1' : 'text-lightmode-azul'} text-xl`}>
@@ -64,4 +51,4 @@ function App() {
   )
 }
 
-export default App
+export default Home;
