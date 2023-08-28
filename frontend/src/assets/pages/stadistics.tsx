@@ -1,5 +1,8 @@
 import React from 'react'
 import LinesCharts from './stats'
+import { NavBar } from '../components/navbar';
+import { SideBar } from '../components/sidebarhome';
+
 
 
 const Stats: React.FC = () => {
@@ -7,6 +10,8 @@ const Stats: React.FC = () => {
 
   return (
     <>
+    <NavBar theme={undefined} changeTheme={undefined} />
+    <SideBar theme={undefined} />
     <div className='bg-darkmode-azul1 h-screen w-full'>
 
         

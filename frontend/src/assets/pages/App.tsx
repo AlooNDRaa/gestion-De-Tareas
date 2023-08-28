@@ -2,7 +2,7 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import Login from './login';
 import Home from './home'
 import Seccion2 from './Taablers';
-import Stats from './styles';
+import Stats from './stadistics';
 
 
 function App() {
