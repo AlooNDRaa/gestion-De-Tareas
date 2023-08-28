@@ -1,7 +1,7 @@
 import React from 'react'
 import LinesCharts from './stats'
 import { NavBar } from '../components/navbar';
-import { SideBar } from '../components/sidebarhome';
+
 
 
 
@@ -11,11 +11,11 @@ const Stats: React.FC = () => {
   return (
     <>
     <NavBar theme={undefined} changeTheme={undefined} />
-    <SideBar theme={undefined} />
+    
     <div className='bg-darkmode-azul1 h-screen w-full'>
 
         
-        <div className='flex justify-end'>
+        <div className='flex justify-around'>
         
             <div className='mt-10'>
             <button className='text-darkmode-verdeagua1 m-5 mr-20'>Ver estadísticas</button>
@@ -26,7 +26,7 @@ const Stats: React.FC = () => {
             </div>
             </div>
 
-              <div className='flex justify-end mr-20'>
+              <div className='flex justify-center mr-20'>
               <div className="h-80 inline-block rounded bg-darkmode-azul3 flex w-fit p-2 mt-20">
               <LinesCharts/>
             </div> 
