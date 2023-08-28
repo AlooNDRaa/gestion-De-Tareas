@@ -2,6 +2,7 @@ import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import Login from './login';
 import Home from './home'
 import Seccion2 from './Taablers';
+import Stats from './styles';
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       <Route path="/login" element={<Login />}/>
       <Route path='/home' element={<Home/>}/>
       <Route path= '/Taablers' element={<Seccion2/>}/>
+      <Route path= '/Stadistics' element={<Stats/>}/>
     </Routes>
     </BrowserRouter>
   )

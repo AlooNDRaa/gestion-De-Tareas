@@ -15,6 +15,7 @@ export default {
       darkmode: {
         "azul1": "#071E3D",
         "azul2": "#1F4287",
+        "azul3": "#1C3655",
         "verdeagua1": "#278EA5",
         "verdeagua2": "#21E6C1",
         "blanco": "#CAEDFF",
