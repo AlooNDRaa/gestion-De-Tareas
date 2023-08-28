@@ -1,0 +1,23 @@
+
+
+body {
+  padding: 1rem;
+  margin: 0;
+  background-color: #E9E2DA;
+  color: #000000;
+  font-family: sans-serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.container {
+  width: 50rem;
+  height: 30rem;
+  display: inline-block;
+  margin-right: 10px;
+  background-color: #f8f9fa;
+  border: 2px solid #007bff;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+}
