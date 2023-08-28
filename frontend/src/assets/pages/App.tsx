@@ -3,6 +3,7 @@ import Login from './login';
 import Home from './home'
 import Seccion2 from './Taablers';
 import Stats from './stadistics';
+import MyApp from './calendar';
 
 
 function App() {
@@ -13,8 +14,9 @@ function App() {
       <Route path="/" element={<Navigate to="/login"/>}/>
       <Route path="/login" element={<Login />}/>
       <Route path='/home' element={<Home/>}/>
-      <Route path= '/Taablers' element={<Seccion2/>}/>
-      <Route path= '/Stadistics' element={<Stats/>}/>
+      <Route path= '/taablers' element={<Seccion2/>}/>
+      <Route path= '/stadistics' element={<Stats/>}/>
+      <Route path= '/calendar' element= {<MyApp/>} />
     </Routes>
     </BrowserRouter>
   )
