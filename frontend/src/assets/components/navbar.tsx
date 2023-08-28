@@ -3,8 +3,8 @@ import { BsFillBellFill } from 'react-icons/bs';
 import { FaUser } from 'react-icons/fa';
 import { MdLightMode } from 'react-icons/md';
 import { MdDarkMode } from 'react-icons/md';
-import logodark from '../imgs/dailytasklogo1.png';
-import logolight from '../imgs/dailytasklogo2.png';
+import logodark from '../img/imgs/dailytasklogo1.png';
+import logolight from '../img/imgs/dailytasklogo2.png';
 
 function NavBar({theme, changeTheme}) {
     const [open, setOpen] = useState(false);

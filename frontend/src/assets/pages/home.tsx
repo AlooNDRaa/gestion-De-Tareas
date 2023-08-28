@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { NavBar } from '../../../home/src/components/navbar';
-import { SideBar } from '../../../home/src/components/sidebar';
-import { Workspace, NameWorkspace } from '../../../home/src/components/workspace';
+import { NavBar } from '../components/navbar';
+import { SideBar } from '../components/sidebarhome';
+import { Workspace, NameWorkspace } from '../components/workspace';
 
 
 function Home() {

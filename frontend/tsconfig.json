@@ -20,6 +20,6 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src", "src/Backend/Server/server.tsx", "src/Backend/Server/server.tsx"],
+  "include": ["src", "src/Backend/Server/server.tsx", "src/Backend/Server/server.tsx", "src/assets/components/sidebarhome.tsx"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

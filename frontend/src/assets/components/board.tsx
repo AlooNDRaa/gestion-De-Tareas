@@ -6,14 +6,14 @@ import { SketchPicker} from 'react-color';
 
 function BoardModal({closeModal, addBoard, theme}) {
     const [title, setTitle] = useState('');
-    const [color, setColor] = useState('');
+    const [color, setColor] = useState('#fff');
     
     
     function handleSubmit(e) {
         e.preventDefault();
         addBoard(title, color)
         setTitle('')
-        setColor('')
+        setColor('#fff')
         closeModal()
     }
     

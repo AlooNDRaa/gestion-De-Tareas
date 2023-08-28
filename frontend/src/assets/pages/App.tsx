@@ -1,15 +1,22 @@
-import Seccion2 from "./Taablers"
-//import Test from "./require"
-
+import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import Login from './login';
+import Home from './home'
+import Seccion2 from './Taablers';
 
 
 function App() {
-  return (
-    <>
-      <Seccion2/>
-    </>
-
+  
+  return(
+    <BrowserRouter>
+    <Routes >
+      <Route path="/" element={<Navigate to="/login"/>}/>
+      <Route path="/login" element={<Login />}/>
+      <Route path='/home' element={<Home/>}/>
+      <Route path= '/Taablers' element={<Seccion2/>}/>
+    </Routes>
+    </BrowserRouter>
   )
+ 
 }
 
 
