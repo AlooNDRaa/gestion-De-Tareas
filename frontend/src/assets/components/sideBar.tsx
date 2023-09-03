@@ -4,7 +4,6 @@ import { AiOutlineMenu } from "react-icons/ai";
 import { TfiHome, TfiCheckBox } from "react-icons/tfi";
 import { BiBell, BiBarChartAlt, BiCalendar, BiCategoryAlt, BiNetworkChart } from 'react-icons/bi';
 import { PiFolderSimpleStar } from "react-icons/pi";
-import Subheader from "./subHeader";
 
 interface SideBarProps {
 }
@@ -93,9 +92,6 @@ const SideBar: React.FC<SideBarProps> = () => {
         </ul>
       </div>
     </nav> 
-  <div className="w-full">
-    <Subheader />
-  </div>
   </div>
   );
 };

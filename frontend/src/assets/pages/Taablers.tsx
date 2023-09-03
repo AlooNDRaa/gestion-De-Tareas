@@ -1,18 +1,18 @@
 import Header from '../components/header';
 import Sidebar from '../components/sideBar';
+import Subheader from '../components/subHeader';
 import TaskManager from '../components/tablers';
 
 function Seccion2() {
   return (
     <>
-      <Header />
-      <div className="flex w-full">
+      <Header/>
+      <Subheader/>
+      <div className="flex">
         <Sidebar />
-        <div className="flex-grow p-4">
-          <TaskManager />
+        <TaskManager />
         </div>
-      </div>
-      </>
+    </>
   );
 }
 
