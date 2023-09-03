@@ -30,7 +30,8 @@ const Subheader: React.FC<SubheaderProps> = (props) => {
   };
 
   return (
-    <div className={`flex justify-between items-center bg-[#278EA5] bg-opacity-25 h-9 text-[#CAEDFF] sm:w-full pl-5 ${props.className}`}>
+    <div className='w-full'>
+    <div className={`flex w-full justify-between items-center bg-[#278EA5] bg-opacity-25 h-9 text-[#CAEDFF] sm:w-full pl-5 ${props.className}`}>
       {isEditing ? (
         <input
           type="text"
@@ -46,10 +47,15 @@ const Subheader: React.FC<SubheaderProps> = (props) => {
         </h4>
       )}
       <div className="flex gap-3">
-        <a href="" className="icon"><BiColor /></a>
-        <a href="" className="icon"><AiOutlineStar /></a>
-        <a href="" className="icon"><AiOutlineMore /></a>
+        <span className="icon"><BiColor />
+        <div className='changed color'>
+          
+        </div>
+        </span>
+        <span className="icon"><AiOutlineStar /></span>
+        <span className="icon"><AiOutlineMore /></span>
       </div>
+    </div>
     </div>
   );
 }
