@@ -101,17 +101,18 @@ const TaskManager: React.FC<TaskManagerProps> = () => {
   };
 
   return (
-    <div className="overflow-x-auto">
+    <div className="container-list overflow-x-auto">
       <div className="flex">
         <DragDropContext onDragEnd={onDragEnd}>
           <div className='w-auto'>
             <div className="overflow-x">
               <div className="flex">
                 {lists.map((list, listIndex) => (
-                  <div key={listIndex} className="bg-[#CFF5E7] w-52 text-[#1F4287] rounded-md p-4 m-7">
+                  <div key={listIndex} className="bg-[#CFF5E7] w-auto text-[#1F4287] rounded-md p-4 m-7">
                     {editableListIndex === listIndex ? (
-                      <div>
+                      <div className='List-name flex pb-2'>
                         <input
+                          className=' bg-[#ADC4CE] rounded text-[#000]'
                           type="text"
                           placeholder="List Name"
                           value={list.name}
@@ -121,16 +122,16 @@ const TaskManager: React.FC<TaskManagerProps> = () => {
                             setLists(updatedLists);
                           }}
                         />
-                        <button onClick={() => handleSaveListName(listIndex)}> + </button>
+                          <button className='pl-2' onClick={() => handleSaveListName(listIndex)}> + </button>
                       </div>
                     ) : (
-                      <h2 className='font-bold m-1 p-1' onClick={() => handleEditListName(listIndex)}>{list.name || 'List Name'}</h2>
+                      <h2 className='font-bold pb-2' onClick={() => handleEditListName(listIndex)}>{list.name || 'List Name'}</h2>
                     )}
-                    <div>
+                    <div className='flex pb-2 overflow-auto'>
                       <input
-                        className='rounded w-fit'
+                        className='list-task bg-[#ADC4CE] rounded text-[#000] overflow-y'
                         type="text"
-                        placeholder="Add title"
+                        placeholder="Add Task"
                         value={newTask}
                         onChange={(e) => setNewTask(e.target.value)}
                       />
@@ -142,7 +143,7 @@ const TaskManager: React.FC<TaskManagerProps> = () => {
                           {list.tasks.map((task, taskIndex) => (
                             <Draggable key={task.id} draggableId={task.id} index={taskIndex}>
                               {(provided) => (
-                                <li className='text-[#1F4287] bg-[#F1F0E8] rounded-lg p-1 m-1'
+                                <li className='text-[#1F4287] bg-[#F1F0E8] rounded-lg'
                                   ref={provided.innerRef}
                                   {...provided.draggableProps}
                                   {...provided.dragHandleProps}
@@ -164,7 +165,7 @@ const TaskManager: React.FC<TaskManagerProps> = () => {
                                       />
                                     </div>
                                   ) : (
-                                    <div>
+                                    <div className='flex justify-between'>
                                       <span onDoubleClick={() => handleEditTask(task.id)}>{task.content}</span>
                                       <button className='text-[#1F4287] ml-24' onClick={() => handleRemoveTask(listIndex, task.id)}>
                                         -
@@ -182,8 +183,8 @@ const TaskManager: React.FC<TaskManagerProps> = () => {
                     <button className='text-xs' onClick={() => handleRemoveList(listIndex)}> Delete </button>
                   </div>
                 ))}
-                <div className="flex h-12 items-center rounded-md p-4 m-7 bg-[#CFF5E7]">
-                  <button className='text-[#1F4287]' onClick={handleAddList}>+ Add List</button>
+                <div className="flex h-14 items-center rounded-md p-9 m-7 bg-[#CFF5E7]">
+                  <button className='flex items-center p-2 text-[#1F4287]' onClick={handleAddList}>+ Add List</button>
                 </div>
               </div>
             </div>
