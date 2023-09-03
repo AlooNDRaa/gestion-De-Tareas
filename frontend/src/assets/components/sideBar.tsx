@@ -4,6 +4,7 @@ import { AiOutlineMenu } from "react-icons/ai";
 import { TfiHome, TfiCheckBox } from "react-icons/tfi";
 import { BiBell, BiBarChartAlt, BiCalendar, BiCategoryAlt, BiNetworkChart } from 'react-icons/bi';
 import { PiFolderSimpleStar } from "react-icons/pi";
+import Subheader from "./subHeader";
 
 interface SideBarProps {
 }
@@ -16,6 +17,7 @@ const SideBar: React.FC<SideBarProps> = () => {
   };
 
   return (
+  <div className="flex">
     <nav className={`${isSideBarOpen ? 'w-52' : 'w-16'} bg-gradient-to-b from-darkmode-azul1 to-darkmode-verdeagua2 h-screen text-darkmode-verdeagua1`}>
       <div className="flex flex-col gap-3">
         <div className="text-[#CAEDFF] p-4 text-2xl flex justify-end">
@@ -91,6 +93,10 @@ const SideBar: React.FC<SideBarProps> = () => {
         </ul>
       </div>
     </nav> 
+  <div className="w-full">
+    <Subheader />
+  </div>
+  </div>
   );
 };
 

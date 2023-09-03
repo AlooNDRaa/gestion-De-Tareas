@@ -1,26 +1,19 @@
-import Header from '../components/header'
-import SideBar from '../components/sideBar'
-import Subheader from '../components/subHeader'
-import TaskManager from '../components/tablers'
+import Header from '../components/header';
+import Sidebar from '../components/sideBar';
+import TaskManager from '../components/tablers';
 
 function Seccion2() {
   return (
-    <div className="flex flex-col">
+    <>
       <Header />
-      <div className="flex">
-        <div className="w-1/1">
-          <SideBar />
-        </div>
-        <div className="flex-grow flex flex-col">
-          <Subheader className="h-auto" />
-          <div className="overflow-auto"> 
-            <TaskManager />
-          </div>
+      <div className="flex w-full">
+        <Sidebar />
+        <div className="flex-grow p-4">
+          <TaskManager />
         </div>
       </div>
-    </div>
-  )
+      </>
+  );
 }
-
 
 export default Seccion2;
