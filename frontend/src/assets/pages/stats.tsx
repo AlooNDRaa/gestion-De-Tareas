@@ -35,11 +35,24 @@ let midata: { labels: string[], datasets: { label: string, data: number[], tensi
             data: horasEnEquipo,
             tension: 0.5,
             fill: true,
-            borderColor: 'rgb(255, 99, 132)',
-            backgroundColor: 'rgba(255, 99, 132, 0.5)',
-            pointRadius: 5,
-            pointBorderColor: 'rgba(255, 99, 132)',
-            pointBackgroundColor: 'rgba(255, 99, 132)',
+            pointRadius: 4,
+            pointBorderColor: '#FFFF',
+            pointBackgroundColor: '#21E6C1',
+            
+            segment: {
+             borderColor: function (context) {
+                if (context.type === "segment") {
+                    return context.p1DataIndex % 2 === 0 ? "#278EA5" : "#21E6C1";
+                }
+             },
+             backgroundColor: function (context) {
+                if (context.type === "segment") {
+                    return context.p1DataIndex % 2 === 0 ? "#21E6C1" : "#278EA5";
+                }
+             },
+              
+             
+            },
         },
         {
             label: 'Horas solitarias',
@@ -49,8 +62,28 @@ let midata: { labels: string[], datasets: { label: string, data: number[], tensi
             borderColor: '#0038FF',
             backgroundColor: '#686085',
             pointRadius: 5,
-            pointBorderColor: '#291E54',
+            pointBorderColor: '#1C3655',
             pointBackgroundColor: '#291E54',
+
+            segment: {
+                borderColor: function (context) {
+                   if (context.type === "segment") {
+                       return context.p1DataIndex % 2 === 0 ? "#278EA5" : "#21E6C1";
+                   }
+                },
+                backgroundColor: function (context) {
+                   if (context.type === "segment") {
+                       return context.p1DataIndex % 2 === 0 ? "#1F4287" : "#071E3D"; 
+                   }
+                },
+                pointBackgroundColor: function (context) {
+                   if (context.type === "segment") {
+                       return context.p1DataIndex % 2 === 0 ? "#1F4287" : "#071E3D";
+                   }
+                },
+                
+                
+               },
         },
     ],
 };
