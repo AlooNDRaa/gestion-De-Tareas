@@ -1,6 +1,5 @@
-import { MdDarkMode } from 'react-icons/md';
 import Header from '../components/header';
-import { SideBar } from '../components/sidebarhome';
+import  SideBar  from '../components/sideBar';
 import Subheader from '../components/subHeader';
 import TaskManager from '../components/tablers';
 
@@ -10,7 +9,7 @@ function Seccion2() {
       <Header/>
       <Subheader/>
       <div className="flex">
-        <SideBar theme={MdDarkMode}/>
+        <SideBar/>
         <TaskManager />
         </div>
     </>
