@@ -21,6 +21,10 @@ export default {
         "blanco": "#CAEDFF",
       }
     },
+    screens: {
+      'mobile': {'min': '100px', 'max': '700px'},
+      'desktop': {'min': '701px', 'max': '3000px'}
+    }
   },
   plugins: [],
 }
