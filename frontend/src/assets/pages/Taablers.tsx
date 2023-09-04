@@ -1,26 +1,20 @@
-import Header from '../components/header'
-import SideBar from '../components/sideBar'
-import Subheader from '../components/subHeader'
-import TaskManager from '../components/tablers'
+import { MdDarkMode } from 'react-icons/md';
+import Header from '../components/header';
+import { SideBar } from '../components/sidebarhome';
+import Subheader from '../components/subHeader';
+import TaskManager from '../components/tablers';
 
 function Seccion2() {
   return (
-    <div className="flex flex-col">
-      <Header />
+    <>
+      <Header/>
+      <Subheader/>
       <div className="flex">
-        <div className="w-1/1">
-          <SideBar />
+        <SideBar theme={MdDarkMode}/>
+        <TaskManager />
         </div>
-        <div className="flex-grow flex flex-col">
-          <Subheader className="h-auto" />
-          <div className="overflow-auto"> 
-            <TaskManager />
-          </div>
-        </div>
-      </div>
-    </div>
-  )
+    </>
+  );
 }
-
 
 export default Seccion2;

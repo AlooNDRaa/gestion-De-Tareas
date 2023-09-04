@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Calendar from 'react-calendar';
-import "../../calendar.css";
+import "./calendar.css";
+import { NavBar } from '../components/navbar';
 
 type ValuePiece = Date | null;
 
@@ -31,28 +32,30 @@ const MyApp: React.FC= ()=> {
   };
 
   return (
-    <div className= 'flex antialiased sans-serif bg-darkmode-azul1 h-screen'>
-      
-      <div className='flex justify-center bg-darkmode-verdeagua1 rounded-lg m-auto'>
+    <div>
+      <NavBar theme={undefined} changeTheme={undefined}/>
+    <div className= 'flex antialiased sans-serif bg-lightmode-verdeagua1 h-screen'>
+      <div className='flex justify-center  m-auto'>
         <Calendar 
           onChange={onChange}
           value={value}
           onClickDay={(date: Date) => handleDateClick(date)}
-          className='m-8 bg-darkmode-azul1 w-20 h-20 rounded-lg text-verdeagua2 text-[#fff]'
+          className=''
           
         />
       </div>
       <div className='flex p-8'>
-      <div className='flex justify-center bg-darkmode-verdeagua2 p-8'>
+      <div className='flex justify-center bg-lightmode-verdeagua2 p-8'>
         <h3 className='text-verdeagua2'>Event Notes:</h3>
         <ul className='mt-4 space-y-4'>
           {events.map((event, index) => (
-            <li key={index} className="bg-darkmode-verdeagua1 p-4 rounded-lg shadow-md">
+            <li key={index} className="bg-ligthmode-verdeagua2 p-4 rounded-lg shadow-md">
               Date: {event.date.toDateString()} - Note: {event.note}
             </li>
           ))}
         </ul>
       </div>
+    </div>
     </div>
     </div>
   );
