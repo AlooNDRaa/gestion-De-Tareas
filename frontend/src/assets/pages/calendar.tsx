@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Calendar from 'react-calendar';
 import "./calendar.css";
 import { NavBar } from '../components/navbar';
+import {SideBar} from '../components/sidebarhome';
 
 type ValuePiece = Date | null;
 
@@ -34,7 +35,8 @@ const MyApp: React.FC= ()=> {
   return (
     <div>
       <NavBar theme={undefined} changeTheme={undefined}/>
-    <div className= 'flex antialiased sans-serif bg-lightmode-verdeagua1 h-screen'>
+    <div className= 'flex antialiased sans-serif bg-lightmode-blanco h-screen'>
+    <SideBar theme={undefined}/>
       <div className='flex justify-center  m-auto'>
         <Calendar 
           onChange={onChange}
@@ -45,11 +47,11 @@ const MyApp: React.FC= ()=> {
         />
       </div>
       <div className='flex p-8'>
-      <div className='flex justify-center bg-lightmode-verdeagua2 p-8'>
-        <h3 className='text-verdeagua2'>Event Notes:</h3>
-        <ul className='mt-4 space-y-4'>
+      <div className='flex justify-center bg-lightmode-blanco p-8 shadow-md rounded-lg '>
+        <h3 className=''>Event Notes:</h3>
+        <ul className=''>
           {events.map((event, index) => (
-            <li key={index} className="bg-ligthmode-verdeagua2 p-4 rounded-lg shadow-md">
+            <li key={index} className= " p-4 rounded-lg shadow-md">
               Date: {event.date.toDateString()} - Note: {event.note}
             </li>
           ))}
