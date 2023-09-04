@@ -1,7 +1,6 @@
 import React from 'react'
 import LinesCharts from './stats'
 import { NavBar } from '../components/navbar';
-import SideBar from '../components/sideBar';
 
 
 

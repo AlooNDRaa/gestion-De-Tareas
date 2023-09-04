@@ -25,7 +25,7 @@ function Home() {
     <NavBar theme={theme} changeTheme={() => {setTheme(!theme)}}/>
     <NavBarMobile theme={theme}/>
     <div className='flex h-screen'>
-    {screen.width > 800 ? <SideBar theme={theme}/> : null}
+    <SideBar theme={theme}/>
     <div className={`p-7 ${theme ? 'dark:bg-[#031124]' : 'bg-[#dff5ed]'}  w-full ${theme ? 'dark:text-darkmode-verdeagua1' : 'text-lightmode-azul'} text-xl`}>
       <div className='py-3'>
         <h1 className=''>Opened Recently</h1>
