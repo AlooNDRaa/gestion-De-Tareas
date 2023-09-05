@@ -1,8 +1,7 @@
 import { useState } from 'react';
-import { NavBar } from '../components/navbar';
+import { NavBar, NavBarMobile } from '../components/navbar';
 import { SideBar } from '../components/sidebarhome';
 import { Workspace, NameWorkspace } from '../components/workspace';
-
 
 function Home() {
   const [show, setShow] = useState(false);
@@ -23,13 +22,14 @@ function Home() {
   return (
     <>
     <NavBar theme={theme} changeTheme={() => {setTheme(!theme)}}/>
-    <div className='flex'>
+    <NavBarMobile theme={theme}/>
+    <div className='flex h-screen'>
     <SideBar theme={theme}/>
     <div className={`p-7 ${theme ? 'dark:bg-[#031124]' : 'bg-[#dff5ed]'}  w-full ${theme ? 'dark:text-darkmode-verdeagua1' : 'text-lightmode-azul'} text-xl`}>
       <div className='py-3'>
         <h1 className=''>Opened Recently</h1>
         <ul>
-
+          
         </ul>
       </div>
       <div className=''>

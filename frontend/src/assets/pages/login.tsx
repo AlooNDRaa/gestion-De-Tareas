@@ -3,14 +3,14 @@ import { MdLockOutline } from 'react-icons/md';
 
 export default function Login() {
   return (
-    <main className="flex min-h-screen items-center justify-center p-24 text-center bg-white">
-      <div className="bg-white rounded-2xl shadow-2xl flex w-2/3 max-w-4xl">
+    <main className="flex text-[#CFF5E7] min-h-screen items-center justify-center p-24 text-center bg-white">
+      <div className="bg-[#1F4287] rounded-2xl shadow-2xl flex w-2/3 max-w-4xl">
         <div className="w-1/2 p-5">
           {/* Sign in */}
-          <div className='text-left font-bold'>
-            <span className='text-blue-500'>Daily</span>task
+          <div className='text-left bg-[#1F4287] font-bold'>
+            <span className=''>DailyTask</span>
           </div>
-          <div className='py-10'>
+          <div className='py-10 bg-[#1F4287]'>
             <h2 className="text-3xl font-bold mb-4">Sign in to account</h2>
             <div className="border-2 w-10 h-1 border-blue-500 inline-block mb-4"></div>
             <div className='flex justify-center my-2'>
@@ -43,7 +43,7 @@ export default function Login() {
             </div>
           </div>          
         </div>
-        <div className="bg-blue-500 w-1/2 text-white rounded-tr-2xl rounded-br-2xl py-20 px-12">
+        <div className="bg-[#278EA5] w-1/2 text-white rounded-tr-2xl rounded-br-2xl py-20 px-12">
           {/* Sign up */}
           <h2 className="text-3xl font-bold mb-4">Hello!</h2>
           <div className="border-2 w-10 h-1 border-white inline-block mb-4"></div>
