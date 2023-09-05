@@ -19,7 +19,7 @@ function NavBar({theme, changeTheme}) {
 
     return (
         <>        
-            <nav className={`${theme ? 'dark:bg-darkmode-azul1' : 'bg-lightmode-blanco'} desktop:flex hidden text-m py-2 justify-between leading-normal content-center font-medium ${theme ? 'dark:text-darkmode-verdeagua1' : 'text-lightmode-azul'}`}>
+            <nav className={`${theme ? 'dark:bg-darkmode-azul1' : 'bg-lightmode-blanco'} desktop:flex hidden text-m justify-between leading-normal content-center font-medium ${theme ? 'dark:text-darkmode-verdeagua1' : 'text-lightmode-azul'} absolute w-screen z-20`}>
                 <div className='flex items-center'>
                     <img src={theme ? logodark : logolight} alt="logo" className="w-30 h-10 pl-2"/>
                     <a className='px-3 cursor-pointer'>Workspaces</a>
@@ -35,7 +35,7 @@ function NavBar({theme, changeTheme}) {
                 </div>
             </nav>
             {open && (
-                <ul className={`${theme ? 'dark:bg-darkmode-azul1' : 'bg-lightmode-blanco'} ${theme ? 'dark:text-darkmode-verdeagua1' : 'text-lightmode-azul'} flex flex-col absolute right-0 text-m rounded-b-lg`}>
+                <ul className={`${theme ? 'dark:bg-darkmode-azul1' : 'bg-lightmode-blanco'} ${theme ? 'dark:text-darkmode-verdeagua1' : 'text-lightmode-azul'} flex flex-col absolute right-0 top-10 z-20 text-m rounded-b-lg`}>
                     <li className='px-2 cursor-pointer'>Profile</li>
                     <li className='px-2 cursor-pointer'>Help</li>
                     <li className='px-2 cursor-pointer'>Logout</li>
