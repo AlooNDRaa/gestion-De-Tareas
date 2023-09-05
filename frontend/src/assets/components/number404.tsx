@@ -1,6 +1,7 @@
 import React from 'react';
 import Pet from '../img/VirtualPET/cry-notepad.png'
 //import Home from '../pages/home';
+import { Link } from 'react-router-dom';
 
 
 const NumberError: React.FC = () => {
@@ -16,7 +17,7 @@ const NumberError: React.FC = () => {
             <h2 className='text-[#eafbff] text-[5rem]'>There's NOTHING here..</h2>
         </div>
             <button className='pointer mb-6 bg-[#112d60] hover:bg-[#000] text-[#a6dbea] hover:text-[#daf] font-bold py-2 px-7 rounded-xl'>
-                <a href="" className='text-[20px] p-2 border-transparent rounded-lg' >Go back home →</a>
+                <Link to='/home' className='text-[20px] p-2 border-transparent rounded-lg' >Go back home →</Link>
             </button>
         </div>
         </>
