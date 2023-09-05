@@ -61,6 +61,6 @@ const MyApp: React.FC= ()=> {
     </div>
     </div>
   );
-}
+ } 
 
 export default MyApp;
