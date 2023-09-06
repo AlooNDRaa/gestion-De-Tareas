@@ -24,7 +24,7 @@ ChartJS.register(
     Filler
 );
 
-const LinesCharts = () => {
+const LinesCharts = ({}) => {
   const [line1Data, setLine1Data] = useState({ labels: [], values: [] });
   const [line2Data, setLine2Data] = useState({ labels: [], values: [] });
 
