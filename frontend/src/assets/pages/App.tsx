@@ -15,11 +15,11 @@ function App() {
       <Route path="/" element={<Navigate to="/login"/>}/>
       <Route path="/login" element={<Login />}/>
       <Route path='/home' element={<Home/>}/>
-      <Route path= '/taablers' element={<Seccion2/>}/>
+      <Route path= '/board' element={<Seccion2/>}/>
       <Route path= '/stadistics' element={<Stats/>}/>
       <Route path= '/calendar' element= {<MyApp/>} />
-      <Route path= '/404' element= {<Error/>} />
-
+      <Route path= '*' element= {<Error/>} /> 
+      {/* Ruteo de error a otros enlaces que no sean los marcados */}
     </Routes>
     </BrowserRouter>
   )
