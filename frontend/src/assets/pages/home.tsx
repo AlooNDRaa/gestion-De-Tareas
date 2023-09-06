@@ -2,6 +2,10 @@ import { useState } from 'react';
 import { NavBar, NavBarMobile } from '../components/navbar';
 import { SideBar } from '../components/sidebarhome';
 import { Workspace, NameWorkspace} from '../components/workspace';
+import { Route, Routes } from 'react-router-dom';
+import Stadistics from './stadistics';
+import Calendar from './calendar';
+import Boards from './Taablers';
 
 function Home() {
   const [show, setShow] = useState(false);
@@ -28,6 +32,14 @@ function Home() {
     <>
       <NavBar theme={theme} changeTheme={() => {setTheme(!theme)}}/>
       <NavBarMobile theme={theme}/>
+      <div>
+       <Routes>
+        <Route path='/home' element={<Home/>}/>
+        <Route path='/stats' element={<Stadistics/>}/>
+        <Route path='/calendar' element={<Calendar/>}/>
+        <Route path='/boards' element={<Boards/>}/>
+       </Routes>   
+      </div>
       <div className='flex h-screen w-screen pt-5'>
         <SideBar theme={theme}/>
         <div className={`p-7 ${theme ? 'dark:bg-[#031124]' : 'bg-[#dff5ed]'}  w-screen ${theme ? 'dark:text-darkmode-verdeagua1' : 'text-lightmode-azul'} text-xl h-screen`}>
@@ -40,9 +52,7 @@ function Home() {
           <div className=''>
             <h1 className='pb-3'>Your Workspaces</h1>
             
-            <span className='cursor-pointer text-m pt-3' onClick={() => setShow(!show)}>New workspace</span>
-
-            {show && <NameWorkspace addWorkspace={addWorkspace} close={() => setShow(!show)} theme={theme}/>}
+            {!show ? <button className={`cursor-pointer text-sm ${theme ? 'bg-darkmode-verdeagua1' : 'bg-lightmode-azul'} ${theme ? 'text-darkmode-azul2' : 'text-lightmode-blanco'} ${theme ? 'shadow-lg shadow-[#031124]' : 'shadow-lg shadow-[#dff5ed]'} p-2 rounded-md`} onClick={() => setShow(!show)}>New workspace</button> : <NameWorkspace addWorkspace={addWorkspace} close={() => setShow(!show)} theme={theme}/>}
 
             {workspaces.map((wksp, index) => (
               

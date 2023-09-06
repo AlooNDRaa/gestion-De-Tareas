@@ -9,6 +9,7 @@ import { BsFillCalendarFill } from 'react-icons/bs';
 import { BsGearFill } from 'react-icons/bs';
 import { BiSolidHelpCircle } from 'react-icons/bi';
 import { MdLogout } from 'react-icons/md';
+import { Link, useMatch, useResolvedPath } from 'react-router-dom';
 import logodark from '../img/imgs/dailytasklogo1.png';
 import logolight from '../img/imgs/dailytasklogo2.png';
 
@@ -22,8 +23,8 @@ function NavBar({theme, changeTheme}) {
             <nav className={`${theme ? 'dark:bg-darkmode-azul1' : 'bg-lightmode-blanco'} desktop:flex hidden text-m justify-between leading-normal content-center font-medium ${theme ? 'dark:text-darkmode-verdeagua1' : 'text-lightmode-azul'} absolute w-screen z-20`}>
                 <div className='flex items-center'>
                     <img src={theme ? logodark : logolight} alt="logo" className="w-30 h-10 pl-2"/>
-                    <a className='px-3 cursor-pointer'>Workspaces</a>
-                    <button className={`${theme ? 'dark:bg-darkmode-verdeagua2' : 'bg-lightmode-azul'} ${theme ? 'dark:text-darkmode-azul1' : 'text-lightmode-blanco'}  px-3 rounded`}>Create</button>
+                    <CustomLink to='/home' className='px-3 cursor-pointer'>Workspaces</CustomLink>
+                    <button className={`${theme ? 'dark:bg-darkmode-verdeagua2' : 'bg-lightmode-azul'} ${theme ? 'dark:text-darkmode-azul1' : 'text-lightmode-blanco'}  px-3 rounded shadow-lg ${theme ? 'shadow-azul1' : 'shadow-lightmode-blanco'}`}>Create</button>
                 </div>
                 
                 <div className={`flex pr-2 text-xl ${theme ? 'dark:text-darkmode-verdeagua1' : 'text-lightmode-azul'} flex-row items-center`}>
@@ -75,4 +76,17 @@ function NavBarMobile(theme) {
     )
 }
 
+function CustomLink({to, children, ...props}) {
+    const resolvedPath = useResolvedPath(to);
+    const isActive = useMatch({path: resolvedPath.pathname, end: true})
+    
+    return (
+        <li className={isActive ? "active" : ""}>
+            <Link to={to} {...props}>
+            {children}
+            </Link>
+
+        </li>
+    )
+}
 export { NavBar, NavBarMobile }

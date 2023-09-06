@@ -52,12 +52,12 @@ function NameWorkspace({addWorkspace, close, theme}) {
     }
 
     return (
-        <form onSubmit={handleSubmit} className='flex items-center pt-3'>
+        <form onSubmit={handleSubmit} className='flex items-center'>
             <label className='pr-2' htmlFor="string">Workspace title:</label>
-            <input className={`${theme ? ('bg-darkmode-azul1' && 'text-darkmode-verdeagua1') : ('bg-lightmode-azul' && 'text-lightmode-verdeagua1' && 'border-lightmode-azul')}`} type="text" name='title' value={title} onChange={(e) => {
-                setTitle(e.target.value)
+            <input className={`${theme ? ('bg-darkmode-azul1' && 'text-darkmode-verdeagua1') : ('bg-lightmode-azul' && 'text-lightmode-verdeagua1' && 'border-lightmode-azul')} rounded-md`} type="text" name='title' value={title} onChange={(e) => {
+                setTitle(e.target.value) 
             }} required/>
-            <button className={ `${theme ? 'bg-darkmode-verdeagua1' : 'bg-lightmode-azul'} ${theme ? 'text-darkmode-azul2' : 'text-lightmode-verdeagua1'} rounded-sm ml-2 p-1`} type='submit'><TiTickOutline/></button>
+            <button className={ `${theme ? 'bg-darkmode-verdeagua1' : 'bg-lightmode-azul'} ${theme ? 'text-darkmode-azul2' : 'text-lightmode-verdeagua1'} rounded-md ml-2 p-1`} type='submit'><TiTickOutline/></button>
         </form>
     )
 }
@@ -78,11 +78,11 @@ function ChangeName({editName, theme, wksp}) {
 
     return (
         <form onSubmit={handleSubmit} className='flex items-center pt-3'>
-            <label className='pr-2' htmlFor="string">Workspace title:</label>
-            <input className={`${theme ? ('bg-darkmode-azul1' && 'text-darkmode-verdeagua1') : ('bg-lightmode-azul' && 'text-lightmode-verdeagua1' && 'border-lightmode-azul')}`} type="text" name='title' value={newTitle} onChange={(e) => {
+            <label className='pr-2' htmlFor="string">New title:</label>
+            <input className={`${theme ? ('bg-darkmode-azul1' && 'text-darkmode-verdeagua1') : ('bg-lightmode-azul' && 'text-lightmode-verdeagua1' && 'border-lightmode-azul')} rounded-md`} type="text" name='title' value={newTitle} onChange={(e) => {
                 setNewTitle(e.target.value)
             }} required/>
-            <button className={ `${theme ? 'bg-darkmode-verdeagua1' : 'bg-lightmode-azul'} ${theme ? 'text-darkmode-azul2' : 'text-lightmode-verdeagua1'} rounded-sm ml-2 p-1`} type='submit'><TiTickOutline/></button>
+            <button className={ `${theme ? 'bg-darkmode-verdeagua1' : 'bg-lightmode-azul'} ${theme ? 'text-darkmode-azul2' : 'text-lightmode-verdeagua1'} rounded-md ml-2 p-1`} type='submit'><TiTickOutline/></button>
         </form>
     )
 }

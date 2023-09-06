@@ -8,15 +8,16 @@ import { ImShare2 } from 'react-icons/im';
 import { BsGearFill } from 'react-icons/bs';
 import { MdLogout } from 'react-icons/md';
 import { RxDoubleArrowLeft } from 'react-icons/rx'; 
+import {Link} from 'react-router-dom';
 
 function SideBar({theme}) {
     const [open, setOpen] = useState(false);
     const [submenuOpen, setSubmenuOpen] = useState(false);
 
     const menus = [
-        {title: 'Home', icon: <AiFillHome/>},
-        {title: 'Statistics', icon: <ImStatsDots/>},
-        {title: 'Calendar', icon: <BsFillCalendarFill/>},
+        {title: 'Home', icon: <AiFillHome/>, path: '/home'},
+        {title: 'Statistics', icon: <ImStatsDots/>, path: '/stats'},
+        {title: 'Calendar', icon: <BsFillCalendarFill/>, path: '/calendar'},
         {title: 'Favorites', 
         icon: <AiFillStar/>,
         spacing: true, 
@@ -28,7 +29,7 @@ function SideBar({theme}) {
         ]},
         {title: 'Share', icon: <ImShare2/>},
         {title: 'Config', icon: <BsGearFill/>, spacing: true},
-        {title: 'Log out', icon: <MdLogout/>}
+        {title: 'Log out', icon: <MdLogout/>, path: '/login'}
     ]
     
     return (
@@ -38,7 +39,20 @@ function SideBar({theme}) {
             <ul className='pt-2'>
                 { menus.map((menu, index) => (
                     <>
-                        <li key={index} className={`${theme ? 'dark:text-darkmode-verdeagua2' : 'text-lightmode-azul'} text-s flex items-center gap-x-4 cursor-pointer p-2 ${theme ? 'dark:hover:bg-darkmode-azul2/50' : 'hover:bg-lightmode-verdeagua1/75'} rounded-md mt-2 ${menu.spacing ? "mt-9" : "mt-2"}`}>
+                        {menu.hasOwnProperty('path') ? (
+                            <Link key={index} to={menu.path} className={`${theme ? 'dark:text-darkmode-verdeagua2' : 'text-lightmode-azul'} text-s flex items-center gap-x-4 cursor-pointer p-2 ${theme ? 'dark:hover:bg-darkmode-azul2/50' : 'hover:bg-lightmode-verdeagua1/75'} rounded-md mt-2 ${menu.spacing ? "mt-9" : "mt-2"}`}>
+                            <span className='text-xl block float-left'>
+                                {menu.icon}
+                            </span>
+                            <span className={`text-base flex-1 duration-200 ${!open && "hidden"}`}>
+                                {menu.title}
+                            </span>
+                            {menu.submenu && open && (
+                                <BsChevronDown className={`cursor-pointer ${theme ? 'dark:text-darkmode-verdeagua2' : 'text-lightmode-azul'}  ${submenuOpen && "rotate-180"}`} onClick={() => setSubmenuOpen(!submenuOpen)}/>
+                            )}
+                        </Link>
+                        ) : (
+                            <li key={index} className={`${theme ? 'dark:text-darkmode-verdeagua2' : 'text-lightmode-azul'} text-s flex items-center gap-x-4 cursor-pointer p-2 ${theme ? 'dark:hover:bg-darkmode-azul2/50' : 'hover:bg-lightmode-verdeagua1/75'} rounded-md mt-2 ${menu.spacing ? "mt-9" : "mt-2"}`}>
                             <span className='text-xl block float-left'>
                                 {menu.icon}
                             </span>
@@ -49,6 +63,9 @@ function SideBar({theme}) {
                                 <BsChevronDown className={`cursor-pointer ${theme ? 'dark:text-darkmode-verdeagua2' : 'text-lightmode-azul'}  ${submenuOpen && "rotate-180"}`} onClick={() => setSubmenuOpen(!submenuOpen)}/>
                             )}
                         </li>
+                        )
+                        }
+                        
                         {menu.submenu && submenuOpen && open && (
                                 <ul>
                                     {menu.submenuItems.map((subitem, index) => (

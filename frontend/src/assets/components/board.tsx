@@ -25,7 +25,7 @@ function BoardModal({closeModal, addBoard, theme}) {
     }
     return (
         <div className='bg-[#000] bg-opacity-40 backdrop-blur-sm flex justify-center items-center fixed inset-0 z-10 left-0 w-screen h-100vh m-0'>
-            <form className={`my-3 flex flex-col w-fit px-2 ${theme ? 'bg-darkmode-verdeagua1' : 'bg-lightmode-verdeagua1'}  ${theme ? 'text-darkmode-azul1' : 'text-lightmode-azul'} rounded-md`} onSubmit={handleSubmit}>
+            <form className={`my-3 flex flex-col w-fit px-2 ${theme ? 'bg-darkmode-verdeagua1' : 'bg-lightmode-verdeagua1'}  ${theme ? 'text-darkmode-azul1' : 'text-lightmode-azul'} rounded-md drop-shadow-lg`} onSubmit={handleSubmit}>
                 <button onClick={closeModal} className='place-self-end my-2'><IoMdClose/></button>
                 <div className='flex pb-2'>
                     <label htmlFor="title" className='pr-3'>Title:</label>
