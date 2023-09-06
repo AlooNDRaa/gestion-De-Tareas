@@ -18,8 +18,8 @@ function App() {
       <Route path= '/boards' element={<Seccion2/>}/>
       <Route path= '/stats' element={<Stats/>}/>
       <Route path= '/calendar' element= {<MyApp/>} />
-      <Route path= '/404' element= {<Error/>} />
-
+      <Route path= '*' element= {<Error/>} /> 
+      {/* Ruteo de error a otros enlaces que no sean los marcados */}
     </Routes>
     </BrowserRouter>
   )
