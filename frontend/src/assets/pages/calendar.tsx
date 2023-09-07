@@ -18,6 +18,7 @@ const MyApp: React.FC = () => {
   const [note, setNote] = useState<string>("");
   const [events, setEvents] = useState<Event[]>([]);
   const [selectedEventIndex, setSelectedEventIndex] = useState<number | null>(null);
+  const [theme, setTheme] = useState(true);
 
   const handleNoteInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setNote(e.target.value);
@@ -51,7 +52,7 @@ const MyApp: React.FC = () => {
   return (
     <div>
       <NavBar theme={undefined} changeTheme={undefined} />
-      <div className='flex antialiased sans-serif bg-lightmode-blanco h-screen'>
+      <div className={`flex antialiased sans-serif h-screen ${theme ? 'dark:text-darkmode-verdeagua1' : 'text-lightmode-azul'}`}>
         <SideBar theme={undefined} />
         <div className='flex justify-center  m-auto'>
           <Calendar
