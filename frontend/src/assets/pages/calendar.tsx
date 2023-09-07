@@ -61,26 +61,27 @@ const MyApp: React.FC = () => {
           />
         </div>
         <div className='flex p-8 flex-col'>
-        <div className='flex justify-center bg-lightmode-blanco p-8 shadow-md rounded-lg h-32 flex-col'>
+        <div className='flex justify-center bg-lightmode-blanco p-8 shadow-md rounded-lg h-32 flex-col max-w-sm'>
           
+         
            <input className='h-4'
              type="text"
             value={note}
             onChange={handleNoteInputChange}
             placeholder="Escribe tu nota aquí"
             />
-            <button onClick={handleAddNote}>Agregar Nota</button>
-             <button onClick={handleDeleteNote} disabled={selectedEventIndex === null}>
+            <button className='boton' onClick={handleAddNote}>Agregar Nota</button>
+             <button className='boton' onClick={handleDeleteNote} disabled={selectedEventIndex === null}>
               Eliminar Nota
              </button>
               </div>
               <div className='flex'>
-              <ul className=''>
+              <ul className='max-w-sm'>
                   {selectedDateNotes.map((event, index) => (
                   <li
                   key={index}
-                  className={`p-4 rounded-lg shadow-md ${
-                  selectedEventIndex === index ? "bg-blue-200" : ""
+                  className= {` flex p-4 rounded-lg shadow-md ${
+                  selectedEventIndex === index ? "bg-blue-200 max-w-sm" : ""
                   }`}
                  onClick={() => setSelectedEventIndex(index)}
                   >

@@ -154,3 +154,12 @@
   .react-calendar--selectRange .react-calendar__tile--hover {
     background-color: #e6e6e6;
   }
+
+  .boton {
+    background-color:#A0E4CB;
+    border-radius: 10px;
+    margin: 5px;
+    width: 60% ;
+    text-align: center;
+    cursor: pointer;
+  }
