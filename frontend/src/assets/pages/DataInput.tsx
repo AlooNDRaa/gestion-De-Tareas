@@ -15,13 +15,13 @@ const DataInput = ({ onAddData, placeholder }) => {
   return (
     <div className='pb-1 mb-2'>
       <input className='m-1 rounded-lg p-0.5 pl-1 bg-darkmode-blanco'
-        type="text"
+        type="number"
         placeholder={` ${placeholder}`}
         value={value}
         onChange={(e) => setValue(e.target.value)}
       />
       <input className='m-1 rounded-lg p-0.5 pl-1 bg-darkmode-blanco'
-        type="text"
+        type="date"
         placeholder="Día de trabajo"
         value={labelValue}
         onChange={(e) => setLabelValue(e.target.value)}

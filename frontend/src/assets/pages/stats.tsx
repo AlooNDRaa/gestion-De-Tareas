@@ -24,7 +24,7 @@ ChartJS.register(
     Filler
 );
 
-const LinesCharts = ({}) => {
+const LinesCharts = ({ graphIndex, onReceiveHoursData }) => {
   const [line1Data, setLine1Data] = useState({ labels: [], values: [] });
   const [line2Data, setLine2Data] = useState({ labels: [], values: [] });
 
@@ -42,6 +42,9 @@ const LinesCharts = ({}) => {
           values: [...line2Data.values, parseInt(value)],
         });
       }
+    
+    const totalHours = line1Data.values.reduce((a, b) => a + b, 0) + line2Data.values.reduce((a, b) => a + b, 0);
+    onReceiveHoursData(totalHours, graphIndex);
     }
   };
 

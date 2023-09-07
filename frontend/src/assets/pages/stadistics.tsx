@@ -9,7 +9,15 @@ import Slider from 'react-slick';
 const Stats: React.FC = () => {
   const sliderRef = useRef<Slider | null>(null);
   const [currentMonthIndex, setCurrentMonthIndex] = useState(0);
+  const [totalHours, setTotalHours] = useState(Array(12).fill(0));
 
+  const receiveHoursData = (totalHours, graphIndex) => {
+    setTotalHours((prevTotalHours) => {
+      const newTotalHours = [...prevTotalHours];
+      newTotalHours[graphIndex] = totalHours;
+      return newTotalHours;
+    });
+  };
 
   const settings = {
     dots: true,
@@ -35,17 +43,27 @@ const Stats: React.FC = () => {
     }
   };
 
+  const handlePreviousMonth = () => {
+    const previousMonthIndex = (currentMonthIndex - 1 + 12) % 12; // Calcula el mes anterior
+    setCurrentMonthIndex(previousMonthIndex); // Actualiza el índice del mes actual
+    if (sliderRef.current) {
+      sliderRef.current.slickGoTo(previousMonthIndex); //cambia el slider al mes anterior
+    }
+  };
+
+  
+
   return (
     <>
       <NavBar theme={undefined} changeTheme={undefined} />
       <div className='flex'>
         <SideBar theme={undefined} />
-        <div className='w-5/6 h-screen'>
+        <div className='w-5/6'>
           <div className='flex justify-around ml-10'>
             <div className='mt-8'>
-              <button className='text-darkmode-verdeagua1 mr-20'>Ver estadísticas</button>
+              <button className='bg-darkmode-verdeagua2 mr-20 rounded-lg p-1 pl-2 pr-2 cursor-auto transform scale-105 transition-transform duration-300 hover:scale-110'>Total de Horas: {totalHours[currentMonthIndex]} horas</button>
               <button className='bg-darkmode-verdeagua1 items-end rounded-tl-lg rounded-bl-lg p-1 mr-0.5 hover:bg-darkmode-verdeagua2'>Semana pasada</button>
-              <button className='bg-darkmode-verdeagua1 items-end p-1 mr-0.5 hover:bg-darkmode-verdeagua2'>Mes pasado</button>
+              <button className='bg-darkmode-verdeagua1 items-end p-1 mr-0.5 hover:bg-darkmode-verdeagua2' onClick={handlePreviousMonth}>Mes pasado</button>
               <button className='bg-darkmode-verdeagua1 items-end rounded-br-lg rounded-tr-lg p-1 mr-20 hover:bg-darkmode-verdeagua2'>Último año</button>
               {/* barra desplegable de meses */}
             <select className='bg-darkmode-verdeagua1 items-end rounded-lg p-1 pl-2 pr-2 mr-20 hover:cursor-pointer' onChange={handleMonthChange} value={monthNames[currentMonthIndex]}>
@@ -63,7 +81,7 @@ const Stats: React.FC = () => {
                 <div key={index} className='flex justify-center mt-10 rounded'>
                   <div className='text-center mt-2 bg-darkmode-azul2 p-2'>{monthNames[index]}</div>
                   <div className='flex justify-center p-10 bg-darkmode-azul3 min-w-3/5'>
-                    <LinesCharts />
+                    <LinesCharts graphIndex={index} onReceiveHoursData={receiveHoursData}/>
                   </div>
                 </div>
               ))}
