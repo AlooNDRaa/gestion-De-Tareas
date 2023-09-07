@@ -1,7 +1,7 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import Login from './login';
-import Home from './home';
-import Seccion2 from './Taablers';
+import Home from './home'
+import Seccion2 from './board';
 import Stats from './stadistics';
 import MyApp from './calendar';
 import Error from './404';
