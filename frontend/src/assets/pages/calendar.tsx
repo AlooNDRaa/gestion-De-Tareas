@@ -3,6 +3,7 @@ import Calendar from 'react-calendar';
 import "./calendar.css";
 import { NavBar } from '../components/navbar';
 import {SideBar} from '../components/sidebarhome';
+import { MdDarkMode, MdLightMode } from 'react-icons/md';
 
 type ValuePiece = Date | null;
 
@@ -51,9 +52,9 @@ const MyApp: React.FC = () => {
 
   return (
     <div>
-      <NavBar theme={undefined} changeTheme={undefined} />
+      <NavBar theme={MdLightMode} changeTheme={undefined} />
       <div className={`flex antialiased sans-serif h-screen ${theme ? 'dark:text-darkmode-verdeagua1' : 'text-lightmode-azul'}`}>
-        <SideBar theme={undefined} />
+        <SideBar theme={theme}/>
         <div className='flex justify-center  m-auto'>
           <Calendar
             onChange={onChange}
