@@ -1,7 +1,7 @@
 import React from 'react'
 import LinesCharts from './stats'
 import { NavBar } from '../components/navbar';
-import SideBar from '../components/sideBar';
+import { SideBar } from '../components/sidebarhome';
 
 
 
@@ -15,7 +15,7 @@ const Stats: React.FC = () => {
     <NavBar theme={undefined} changeTheme={undefined} />
 
     <div className='flex'>
-    <SideBar />
+    <SideBar theme={undefined} />
     <div className='bg-darkmode-azul1 w-full'>
     
         <div className='flex justify-around ml-10'>

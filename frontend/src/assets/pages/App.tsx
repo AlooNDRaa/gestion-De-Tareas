@@ -1,6 +1,6 @@
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
 import Login from './login';
-import Home from './home'
+import Home from './home';
 import Seccion2 from './Taablers';
 import Stats from './stadistics';
 import MyApp from './calendar';
@@ -15,11 +15,11 @@ function App() {
       <Route path="/" element={<Navigate to="/login"/>}/>
       <Route path="/login" element={<Login />}/>
       <Route path='/home' element={<Home/>}/>
-      <Route path= '/taablers' element={<Seccion2/>}/>
-      <Route path= '/stadistics' element={<Stats/>}/>
+      <Route path= '/boards' element={<Seccion2/>}/>
+      <Route path= '/stats' element={<Stats/>}/>
       <Route path= '/calendar' element= {<MyApp/>} />
-      <Route path= '/404' element= {<Error/>} />
-
+      <Route path= '*' element= {<Error/>} /> 
+      {/* Ruteo de error a otros enlaces que no sean los marcados */}
     </Routes>
     </BrowserRouter>
   )
