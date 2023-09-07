@@ -1,6 +1,5 @@
 import React from 'react';
 import Pet from '../img/VirtualPET/cry-notepad.png'
-//import Home from '../pages/home';
 import { Link } from 'react-router-dom';
 
 
