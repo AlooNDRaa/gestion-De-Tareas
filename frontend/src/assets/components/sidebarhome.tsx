@@ -35,7 +35,7 @@ function SideBar({theme}) {
     return (
         <>
         <div className={`bg-gradient-to-b ${theme ? 'from-darkmode-azul1' : 'from-lightmode-blanco'} ${theme ? 'to-darkmode-verdeagua1' : 'to-lightmode-azul'} h-screen p-5 ${open ? "w-72" : "w-20"} relative mobile:hidden`}>
-            <RxDoubleArrowLeft className={`cursor-pointer ${theme ? 'bg-darkmode-verdeagua2' : 'bg-lightmode-azul'} ${theme ? 'text-darkmode-azul2' : 'text-lightmode-blanco'} text-3xl p-1 border dark:border-darkmode-azul1 rounded-full absolute -right-3 top-9 ${!open && "rotate-180"}`} onClick={() => setOpen(!open)}/>
+            <RxDoubleArrowLeft className={`cursor-pointer bg-[#fff] bg-opacity-5 ${theme ? 'text-darkmode-verdeagua2' : 'text-lightmode-azul'} text-3xl p-1 border border-darkmode-azul1 rounded-full absolute -right-3 top-9 ${!open && "rotate-180"}`} onClick={() => setOpen(!open)}/>
             <ul className='pt-2'>
                 { menus.map((menu, index) => (
                     <>

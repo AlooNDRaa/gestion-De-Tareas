@@ -36,7 +36,7 @@ function NavBar({theme, changeTheme}) {
                 </div>
             </nav>
             {open && (
-                <ul className={`${theme ? 'dark:bg-darkmode-azul1' : 'bg-lightmode-blanco'} ${theme ? 'dark:text-darkmode-verdeagua1' : 'text-lightmode-azul'} flex flex-col absolute right-0 top-10 z-20 text-m rounded-b-lg`}>
+                <ul className={`${theme ? 'dark:bg-darkmode-azul1' : 'bg-lightmode-blanco'} ${theme ? 'dark:text-darkmode-verdeagua1' : 'text-lightmode-azul'} hidden desktop:flex flex-col absolute right-0 top-10 z-20 text-m rounded-b-lg`}>
                     <li className='px-2 cursor-pointer'>Profile</li>
                     <li className='px-2 cursor-pointer'>Help</li>
                     <li className='px-2 cursor-pointer'>Logout</li>

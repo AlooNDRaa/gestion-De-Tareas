@@ -5,7 +5,7 @@ import { Workspace, NameWorkspace} from '../components/workspace';
 import { Route, Routes } from 'react-router-dom';
 import Stadistics from './stadistics';
 import Calendar from './calendar';
-import Boards from './Taablers';
+import Board from './Taablers';
 
 function Home() {
   const [show, setShow] = useState(false);
@@ -37,7 +37,7 @@ function Home() {
         <Route path='/home' element={<Home/>}/>
         <Route path='/stats' element={<Stadistics/>}/>
         <Route path='/calendar' element={<Calendar/>}/>
-        <Route path='/boards' element={<Boards/>}/>
+        <Route path='/board' element={<Board/>}/>
        </Routes>   
       </div>
       <div className='flex h-screen w-screen pt-5'>

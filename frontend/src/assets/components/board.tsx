@@ -23,6 +23,7 @@ function BoardModal({closeModal, addBoard, theme}) {
             handleSubmit(e)
         }
     }
+    
     return (
         <div className='bg-[#000] bg-opacity-40 backdrop-blur-sm flex justify-center items-center fixed inset-0 z-10 left-0 w-screen h-100vh m-0'>
             <form className={`my-3 flex flex-col w-fit px-2 ${theme ? 'bg-darkmode-verdeagua1' : 'bg-lightmode-verdeagua1'}  ${theme ? 'text-darkmode-azul1' : 'text-lightmode-azul'} rounded-md drop-shadow-lg`} onSubmit={handleSubmit}>
@@ -47,7 +48,7 @@ function BoardHomeView({name, bgcolor}) {
     return (
         <>
             <li className="w-40 h-28 rounded-md mr-3 flex flex-col cursor-pointer" style={{backgroundColor: bgcolor}}>
-                <div className='place-self-end pr-1 pt-1'><BsThreeDotsVertical/></div>
+                <div className='place-self-end pl-1 pt-1'><BsThreeDotsVertical/></div>
                 <span className='place-self-center mt-5 text-center'>{name}</span>
             </li>
         </>

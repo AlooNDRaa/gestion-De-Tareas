@@ -1,5 +1,7 @@
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { useState } from 'react';
 import Login from './login';
+import PrivateRoutes from '../components/privateRoutes';
 import Home from './home';
 import Seccion2 from './Taablers';
 import Stats from './stadistics';
@@ -8,17 +10,27 @@ import Error from './404';
 
 
 function App() {
+  const [user, setUser] = useState ({name: '', isAuthenticated: false})
+
+  const login = (username) => {
+    setUser({name: username, isAuthenticated: true})
+  }
   
+  const logout = () => {
+    setUser({name: '', isAuthenticated: false})
+  }
+
   return(
     <BrowserRouter>
     <Routes >
-      <Route path="/" element={<Navigate to="/login"/>}/>
+      <Route element={<PrivateRoutes auth={user}/>}>
+        <Route path='/' element={<Home/>}/>
+        <Route path= '/boards' element={<Seccion2/>}/>
+        <Route path= '/stats' element={<Stats/>}/>
+        <Route path= '/calendar' element= {<MyApp/>} />
+      </Route>
       <Route path="/login" element={<Login />}/>
-      <Route path='/home' element={<Home/>}/>
-      <Route path= '/boards' element={<Seccion2/>}/>
-      <Route path= '/stats' element={<Stats/>}/>
-      <Route path= '/calendar' element= {<MyApp/>} />
-      <Route path= '*' element= {<Error/>} /> 
+      {/* <Route path= '*' element= {<Error/>} />  */}
       {/* Ruteo de error a otros enlaces que no sean los marcados */}
     </Routes>
     </BrowserRouter>
