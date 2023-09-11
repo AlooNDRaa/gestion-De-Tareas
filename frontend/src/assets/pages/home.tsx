@@ -5,7 +5,7 @@ import { Workspace, NameWorkspace} from '../components/workspace';
 import { Route, Routes } from 'react-router-dom';
 import Stadistics from './stadistics';
 import Calendar from './calendar';
-import Board from './Taablers';
+import Board from './board';
 
 function Home() {
   const [show, setShow] = useState(false);
@@ -13,21 +13,16 @@ function Home() {
   const [theme, setTheme] = useState(true); //true for dark (default), false for lightmode
   
   function addWorkspace(wksp) {
-    setWorkspaces([...workspaces, {title: wksp, isEditing: false}])
+    setWorkspaces([...workspaces, {title: wksp}])
   }
 
   function deleteWorkspace(title) {
     setWorkspaces(workspaces.filter(wksp => wksp.title !== title))
   }
 
-  function editWorkspace(title) {
-    setWorkspaces(workspaces.map(wksp => wksp.title === title ? {... wksp, isEditing: !wksp.isEditing} : wksp))
-  }
+ 
 
-  function editName(title, item) {
-    setWorkspaces(workspaces.map(wksp => wksp === item ? {... item, title, isEditing: !wksp.isEditing} : wksp))
-  }
-  
+
   return (
     <>
       <NavBar theme={theme} changeTheme={() => {setTheme(!theme)}}/>
@@ -37,7 +32,7 @@ function Home() {
         <Route path='/home' element={<Home/>}/>
         <Route path='/stats' element={<Stadistics/>}/>
         <Route path='/calendar' element={<Calendar/>}/>
-        <Route path='/board' element={<Board/>}/>
+        <Route path='/boards' element={<Board/>}/>
        </Routes>   
       </div>
       <div className='flex h-screen w-screen pt-5'>
@@ -52,16 +47,17 @@ function Home() {
           <div className=''>
             <h1 className='pb-3'>Your Workspaces</h1>
             
-            {!show ? <button className={`cursor-pointer text-sm ${theme ? 'bg-darkmode-verdeagua1' : 'bg-lightmode-azul'} ${theme ? 'text-darkmode-azul2' : 'text-lightmode-blanco'} ${theme ? 'shadow-lg shadow-[#031124]' : 'shadow-lg shadow-[#dff5ed]'} p-2 rounded-md`} onClick={() => setShow(!show)}>New workspace</button> : <NameWorkspace addWorkspace={addWorkspace} close={() => setShow(!show)} theme={theme}/>}
+            {!show ? <button className={`cursor-pointer text-sm ${theme ? 'bg-darkmode-verdeagua1' : 'bg-lightmode-azul'} ${theme ? 'text-darkmode-azul2' : 'text-lightmode-blanco'} ${theme ? 'shadow-lg shadow-[#031124]' : 'shadow-lg shadow-[#dff5ed]'} p-2 rounded-md`} onClick={() => setShow(!show)}>New workspace</button> : <NameWorkspace show={show} addWorkspace={addWorkspace} close={() => setShow(!show)} theme={theme}/>}
 
-            {workspaces.map((wksp, index) => (
-              
-              <Workspace wksp={wksp} key={index} deleteWorkspace={deleteWorkspace} theme={theme} editWorkspace={editWorkspace} editName={editName}/>
-              )
-            )}
-          </div>
-        </div>
+
+        {workspaces.map((wksp, index) => 
+          <Workspace title={wksp} key={index} deleteWorkspace={deleteWorkspace} theme={theme}/>
+        )}
+
       </div>
+
+    </div>
+    </div>
     </>
   )
 }
