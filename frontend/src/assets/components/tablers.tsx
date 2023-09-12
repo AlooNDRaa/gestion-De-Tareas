@@ -3,6 +3,7 @@ import { DragDropContext, Droppable, Draggable, DropResult } from 'react-beautif
 
 interface TaskManagerProps {
   className?: string;
+  theme?: boolean;
 }
 
 interface Task {
@@ -10,7 +11,7 @@ interface Task {
   content: string;
 }
 
-const TaskManager: React.FC<TaskManagerProps> = () => {
+const TaskManager: React.FC<TaskManagerProps> = (props) => {
   const [lists, setLists] = useState<{ name: string; tasks: Task[] }[]>([]);
   const [newTask, setNewTask] = useState<string>('');
   const [editableListIndex, setEditableListIndex] = useState<number | null>(null);
@@ -101,14 +102,14 @@ const TaskManager: React.FC<TaskManagerProps> = () => {
   };
 
   return (
-    <div className="container-list overflow-x-auto">
-      <div className="flex">
+    <div className={`${props.className} ${props.theme ? 'bg-darkmode-azul1 text-darkmode-verdeagua1' : 'bg-lightmode-blanco text-lightmode-azul' } overflow-x-auto h-screen`}>
+      <div className="flex w-full">
         <DragDropContext onDragEnd={onDragEnd}>
           <div className='w-auto'>
             <div className="overflow-x">
               <div className="flex">
                 {lists.map((list, listIndex) => (
-                  <div key={listIndex} className="bg-[#CFF5E7] w-auto text-[#1F4287] rounded-md p-4 m-7">
+                  <div key={listIndex} className="bg-[#000] w-auto text-[#1F4287] rounded-md p-4 m-7">
                     {editableListIndex === listIndex ? (
                       <div className='List-name flex pb-2'>
                         <input
