@@ -8,7 +8,6 @@ import '../pages/App.css'
 interface SideBarProps {
 }
 
-
 const SideBar: React.FC<SideBarProps> = () => {
   const [isSideBarOpen, setIsSideBarOpen] = useState<boolean>(false); //Aca ya se incia al cerrar los celus
 

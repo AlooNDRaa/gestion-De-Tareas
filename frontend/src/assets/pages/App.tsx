@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Login from './login';
 import PrivateRoutes from '../components/privateRoutes';
 import Home from './home';
-import Seccion2 from './Taablers';
+import Seccion2 from './board';
 import Stats from './stadistics';
 import MyApp from './calendar';
 import Error from './404';

@@ -5,7 +5,7 @@ import { Workspace, NameWorkspace} from '../components/workspace';
 import { Route, Routes } from 'react-router-dom';
 import Stadistics from './stadistics';
 import Calendar from './calendar';
-import Board from './Taablers';
+import Board from './board';
 
 function Home() {
   const [show, setShow] = useState(false);
