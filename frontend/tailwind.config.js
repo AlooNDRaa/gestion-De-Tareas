@@ -8,7 +8,7 @@ export default {
     colors: {
       lightmode: {
         "blanco": "#CFF5E7", 
-        "verdeagua1": "#A0E4CB", 
+        "verdeagua": "#A0E4CB", 
         "verdeagua2": "#59C1BD", 
         "azul": "#0D4C92", 
       },
