@@ -122,3 +122,4 @@ const LinesCharts = ({ graphIndex, onReceiveHoursData }) => {
 };
 
 export default LinesCharts;
+
