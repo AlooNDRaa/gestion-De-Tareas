@@ -4,6 +4,7 @@ import "./calendar.css";
 import { NavBar, NavBarMobile } from '../components/navbar';
 import {SideBar} from '../components/sidebarhome';
 import { MdDarkMode, MdLightMode } from 'react-icons/md';
+import { FaStickyNote } from 'react-icons/fa';
 
 type ValuePiece = Date | null;
 
@@ -54,15 +55,28 @@ const MyApp: React.FC = () => {
     <div className='calendar-container '>
       <NavBar theme={MdLightMode} changeTheme={undefined} />
       <NavBarMobile/>
-      <div className={`flex antialiased sans-serif h-screen ${theme ? 'dark:text-darkmode-verdeagua1' : 'text-lightmode-azul'}`}>
+      <div className={`flex antialiased sans-serif ${theme ? 'dark:text-darkmode-verdeagua1' : 'text-lightmode-azul'}`}>
         <SideBar theme={theme}/>
         <div className='flex justify-center  m-auto'>
-          <Calendar
-            onChange={onChange}
-            value={value}
-          />
+        <Calendar
+  onChange={onChange}
+  value={value}
+  tileContent={({ date, view }) => {
+    // Verifica si hay notas para esta fecha
+    const hasNotes = events.some(event => event.date.toDateString() === date.toDateString());
+
+    // Si hay notas, muestra el ícono de la nota
+    if (hasNotes) {
+      return <FaStickyNote className="note-icon" />;
+    }
+
+    // Si no hay notas, no muestra ningún contenido
+    return null;
+  }}
+/>
+
         </div>
-        <div className='flex p-8 flex-col h-screen'>
+        <div className='flex p-8 flex-col'>
         <div className='flex justify-center bg-darkmode-verdeagua1 p-8 shadow-md rounded-lg h-32 flex-col max-w-sm'>
           
          
@@ -78,7 +92,7 @@ const MyApp: React.FC = () => {
              </button>
               </div>
               <div className='container-notes flex'>
-              <ul className="notes-list" style={{ maxHeight: '50%', overflowY: 'scroll' }}>
+              <ul className="notes-list" style={{ maxHeight: '300px', overflowY: 'auto' }}>
               {selectedDateNotes.map((event, index) => (
                 <li
                   key={index}
