@@ -10,26 +10,26 @@ import { BsGearFill } from 'react-icons/bs';
 import { BiSolidHelpCircle } from 'react-icons/bi';
 import { MdLogout } from 'react-icons/md';
 import { Link, useMatch, useResolvedPath } from 'react-router-dom';
+import { CgMenu } from 'react-icons/cg';
 import logodark from '../img/imgs/dailytasklogo1.png';
 import logolight from '../img/imgs/dailytasklogo2.png';
 
 function NavBar({theme, changeTheme}) {
     const [open, setOpen] = useState(false);
-    const [icon, setIcon] = useState(true);
 
 
     return (
         <>        
-            <nav className={`${theme ? 'dark:bg-darkmode-azul1' : 'bg-lightmode-blanco'} desktop:flex hidden text-m justify-between leading-normal content-center font-medium ${theme ? 'dark:text-darkmode-verdeagua1' : 'text-lightmode-azul'} absolute w-screen z-20`}>
+            <nav className={`${theme ? 'bg-darkmode-azul1' : 'bg-lightmode-blanco'} desktop:flex hidden text-m justify-between leading-normal content-center font-medium ${theme ? 'dark:text-darkmode-verdeagua1' : 'text-lightmode-azul'} w-screen z-20 fixed top-0`}>
                 <div className='flex items-center'>
                     <img src={theme ? logodark : logolight} alt="logo" className="w-30 h-10 pl-2"/>
-                    <CustomLink to='/home' className='px-3 cursor-pointer'>Workspaces</CustomLink>
-                    <button className={`${theme ? 'dark:bg-darkmode-verdeagua2' : 'bg-lightmode-azul'} ${theme ? 'dark:text-darkmode-azul1' : 'text-lightmode-blanco'}  px-3 rounded shadow-lg ${theme ? 'shadow-azul1' : 'shadow-lightmode-blanco'}`}>Create</button>
+                    <CustomLink to='/' className='px-3 cursor-pointer'>Workspaces</CustomLink>
+                    <button className={`${theme ? 'dark:bg-darkmode-verdeagua2' : 'bg-lightmode-azul'} ${theme ? 'dark:text-darkmode-azul1' : 'text-lightmode-blanco'}  px-3 rounded shadow-md hover:shadow-inner ${theme ? 'shadow-[#020D1C]' : 'shadow-[#ADDAC9]'}`}>Create</button>
                 </div>
                 
                 <div className={`flex pr-2 text-xl ${theme ? 'dark:text-darkmode-verdeagua1' : 'text-lightmode-azul'} flex-row items-center`}>
-                    <a className='px-2 cursor-pointer' onClick={() => {setIcon(!icon); changeTheme(!theme)} }>
-                        {icon ? <MdLightMode/> : <MdDarkMode/>}
+                    <a className='px-2 cursor-pointer' onClick={() => {changeTheme(!theme)} }>
+                        {theme ? <MdLightMode/> : <MdDarkMode/>}
                     </a>
                     <a className='px-2 cursor-pointer'><BsFillBellFill/></a>
                     <a className='px-2 cursor-pointer' onClick={() => setOpen(!open)}><FaUser/></a>
@@ -47,57 +47,52 @@ function NavBar({theme, changeTheme}) {
 }
 
 
-const sectionsMobile = [
-    {name: 'Home', icon: <AiFillHome/>, path: '/'},
-    {name: 'Stadistics', icon: <ImStatsDots/>, path: '/stats'},
-    {name: 'Calendar', icon: <BsFillCalendarFill/>, path: '/calendar'},
-    {name: 'Config', icon: <BsGearFill/>},
-    {name: 'Help', icon: <BiSolidHelpCircle/>},
-    {name: 'Logout', icon: <MdLogout/>, path: '/login'}   
-]
 
-function NavBarMobile(theme) {
-    const [open, setOpen] = useState(false)
+
+function NavBarMobile({theme}) {
+    const [open, setOpen] = useState(false);
+
+    const sectionsMobile = [
+        {name: 'Home', icon: <AiFillHome/>, path: '/'},
+        {name: 'Stadistics', icon: <ImStatsDots/>, path: '/stats'},
+        {name: 'Calendar', icon: <BsFillCalendarFill/>, path: '/calendar'},
+        {name: 'Config', icon: <BsGearFill/>},
+        {name: 'Help', icon: <BiSolidHelpCircle/>},
+        {name: 'Logout', icon: <MdLogout/>, path: '/login'}   
+    ]
 
     return (
     <>  
-    <nav className={`${theme ? 'dark:bg-darkmode-azul1' : 'bg-lightmode-blanco'} ${theme ? 'dark:text-darkmode-verdeagua1' : 'text-lightmode-azul'} mobile:flex hidden justify-between`}>
+    <nav className={`mobile:flex hidden justify-between ${theme ? 'dark:bg-darkmode-azul1' : 'bg-lightmode-blanco'} ${theme ? 'text-darkmode-verdeagua1' : 'text-lightmode-azul'}`}>
        <img src={theme ? logodark : logolight} alt="logo" className="w-30 h-10 pl-2"/>
        
        <div className={`${theme ? 'dark:text-darkmode-verdeagua1' : 'text-lightmode-azul'} flex-row items-center flex pr-2 text-xl`}>
             <a className='px-2 cursor-pointer'><BsFillBellFill/></a>
-            <a className='px-2 cursor-pointer' onClick={() => setOpen(!open)}><FaUser/></a>
+            <a className='px-2 cursor-pointer' onClick={() => setOpen(!open)}><CgMenu/></a>
        </div>
     </nav>
     {open && (
-        <ul className={`${theme ? 'dark:bg-darkmode-azul1' : 'bg-lightmode-blanco'} ${theme ? 'dark:text-darkmode-verdeagua1' : 'text-lightmode-azul'} flex flex-col absolute right-0 text-m rounded-b-lg w-40`}>
+        <ul className={`${theme ? 'bg-darkmode-azul1' : 'bg-lightmode-blanco'} ${theme ? 'dark:text-darkmode-verdeagua1' : 'text-lightmode-azul'} desktop:hidden flex flex-col absolute right-0 text-m rounded-b-lg w-40 py-2`}>
             {
-                sectionsMobile.map(section => (
+                sectionsMobile.map((section, index) => (
                     
                     section.hasOwnProperty('path') ? (
-                        <Link to={section.path} className='flex'>
+                        <Link to={section.path} className='flex' key={index}>
                             <span className='px-2'>
                                 {section.icon}
                             </span>
                             {section.name}
                         </Link>
                     ) : (
-                        <li className='flex'>
-                            <span className='px-2 pt-2'>{section.icon}</span>
+                        <li className='flex' key={index}>
+                            <span className='px-2'>{section.icon}</span>
                             {section.name}
                         </li>
                     )
                     
                 ))
             }
-            
-            
-            {/* <li className='flex'><span className='px-2 pt-2'><AiFillHome/></span>Home</li>
-            <li className='flex'><span className='px-2'><ImStatsDots/></span>Statistics</li>
-            <li className='flex'><span className='px-2'><BsFillCalendarFill/></span>Calendar</li>
-            <li className='flex'><span className='px-2'><BsGearFill/></span>Config</li>
-            <li className='flex'><span className='px-2'><BiSolidHelpCircle/></span>Help</li>
-            <li className='flex'><span className='px-2 pb-2'><MdLogout/></span>Logout</li> */}
+
         </ul>    
     )}
     </> 

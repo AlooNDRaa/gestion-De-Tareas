@@ -19,16 +19,16 @@ function Workspace({wksp, deleteWorkspace, editWorkspace, editName, theme} ) {
     return (
         <>
         {openModal && <BoardModal closeModal={() => setOpenModal(!openModal)} addBoard={addBoard} theme={theme}/>}
-        <div className='pl-4 py-3 h-full'>
+        <div className='desktop:pl-4 py-3 h-full w-auto'>
 
-            <div className='flex items-center'>
+            <div className='flex items-center pb-2'>
                 {wksp.isEditing ? (<ChangeName editName={editName} wksp={wksp} theme={theme}/>) : <h2>{wksp.title}</h2>}
                 <span className='px-1 pl-2 cursor-pointer' onClick={() => editWorkspace(wksp.title)}>{!wksp.isEditing && <AiFillEdit className={`${theme ? 'text-darkmode-verdeagua1' : 'text-lightmode-azul'}`}/>}</span>
                 <span className='px-1 cursor-pointer' onClick={() => deleteWorkspace(wksp.title)}> <MdDelete className={`${theme ? 'text-darkmode-verdeagua1' : 'text-lightmode-azul'}`}/></span>
             </div>
-            <ul className={`flex py-3 w-100% ${theme ? 'text-darkmode-verdeagua2' : 'text-lightmode-azul'}`}>
+            <ul className={`flex flex-row gap-2 overflow-x-auto ${theme ? 'text-darkmode-verdeagua2' : 'text-lightmode-azul'} rounded-md`}>
                 {boards.slice(0).reverse().map((board, index) => <BoardHomeView name={board.name} bgcolor={board.bgcolor} key={index}/>)}
-                <li className={`w-40 h-28 ${theme ? 'bg-darkmode-azul1' : 'bg-lightmode-azul'} rounded-md text-center flex items-center justify-center cursor-pointer`} onClick={() => setOpenModal(!openModal)}>
+                <li className={`w-40 h-28 shrink-0 ${theme ? 'bg-darkmode-azul1' : 'bg-lightmode-azul'} rounded-md flex flex-row text-center items-center justify-center cursor-pointer`} onClick={() => setOpenModal(!openModal)}>
                   <FiPlus className={`text-xl text-center ${theme ? 'text-darkmode-verdeagua1' : 'text-lightmode-blanco'}`}/>
                 </li>
             </ul>
@@ -52,7 +52,7 @@ function NameWorkspace({addWorkspace, close, theme}) {
     }
 
     return (
-        <form onSubmit={handleSubmit} className='flex items-center'>
+        <form onSubmit={handleSubmit} className='flex items-center mobile:text-sm'>
             <label className='pr-2' htmlFor="string">Workspace title:</label>
             <input className={`${theme ? ('bg-darkmode-azul1' && 'text-darkmode-verdeagua1') : ('bg-lightmode-azul' && 'text-lightmode-verdeagua1' && 'border-lightmode-azul')} rounded-md`} type="text" name='title' value={title} onChange={(e) => {
                 setTitle(e.target.value) 
@@ -77,7 +77,7 @@ function ChangeName({editName, theme, wksp}) {
     }
 
     return (
-        <form onSubmit={handleSubmit} className='flex items-center pt-3'>
+        <form onSubmit={handleSubmit} className='flex items-center desktop:pt-3 mobile:text-sm'>
             <label className='pr-2' htmlFor="string">New title:</label>
             <input className={`${theme ? ('bg-darkmode-azul1' && 'text-darkmode-verdeagua1') : ('bg-lightmode-azul' && 'text-lightmode-verdeagua1' && 'border-lightmode-azul')} rounded-md`} type="text" name='title' value={newTitle} onChange={(e) => {
                 setNewTitle(e.target.value)

@@ -32,7 +32,7 @@ function BoardModal({closeModal, addBoard, theme}) {
                     <label htmlFor="title" className='pr-3'>Title:</label>
                     <input type="text" name='title' required value={title} onChange={(e) => setTitle(e.target.value)} className='w-60 rounded-md' onKeyDown={handleKeyPress}/>
                 </div>
-                <label htmlFor="">Color: </label>
+                <label htmlFor="">Color:</label>
                 <SketchPicker onChangeComplete={updated => setColor(updated.hex)} color={color} className='place-self-center'/>
                 <div className='flex justify-between pt-2'>
                     <button><BsPersonFillAdd className='pb-1 font-xl'/></button>
@@ -47,7 +47,7 @@ function BoardHomeView({name, bgcolor}) {
 
     return (
         <>
-            <li className="w-40 h-28 rounded-md mr-3 flex flex-col cursor-pointer" style={{backgroundColor: bgcolor}}>
+            <li className={`w-40 h-28 rounded-md mr-3 flex flex-col cursor-pointer shrink-0`} style={{backgroundColor: bgcolor}}>
                 <div className='place-self-end pl-1 pt-1'><BsThreeDotsVertical/></div>
                 <span className='place-self-center mt-5 text-center'>{name}</span>
             </li>
