@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import Calendar from 'react-calendar';
 import "./calendar.css";
-import { NavBar } from '../components/navbar';
+import { NavBar, NavBarMobile } from '../components/navbar';
 import {SideBar} from '../components/sidebarhome';
 import { MdDarkMode, MdLightMode } from 'react-icons/md';
 
@@ -51,19 +51,19 @@ const MyApp: React.FC = () => {
   );
 
   return (
-    <div>
+    <div className='calendar-container '>
       <NavBar theme={MdLightMode} changeTheme={undefined} />
+      <NavBarMobile/>
       <div className={`flex antialiased sans-serif h-screen ${theme ? 'dark:text-darkmode-verdeagua1' : 'text-lightmode-azul'}`}>
         <SideBar theme={theme}/>
         <div className='flex justify-center  m-auto'>
           <Calendar
             onChange={onChange}
             value={value}
-            className=''
           />
         </div>
-        <div className='flex p-8 flex-col'>
-        <div className='flex justify-center bg-lightmode-blanco p-8 shadow-md rounded-lg h-32 flex-col max-w-sm'>
+        <div className='flex p-8 flex-col h-screen'>
+        <div className='flex justify-center bg-darkmode-verdeagua1 p-8 shadow-md rounded-lg h-32 flex-col max-w-sm'>
           
          
            <input className='h-4'
@@ -77,20 +77,20 @@ const MyApp: React.FC = () => {
               Eliminar Nota
              </button>
               </div>
-              <div className='flex'>
-              <ul className='max-w-sm'>
-                  {selectedDateNotes.map((event, index) => (
-                  <li
+              <div className='container-notes flex'>
+              <ul className="notes-list" style={{ maxHeight: '50%', overflowY: 'scroll' }}>
+              {selectedDateNotes.map((event, index) => (
+                <li
                   key={index}
-                  className= {` flex p-4 rounded-lg shadow-md ${
-                  selectedEventIndex === index ? "bg-blue-200 max-w-sm" : ""
+                  className={`flex p-4 rounded-lg shadow-md ${
+                    selectedEventIndex === index ? 'bg-darkmode-verdeagua2' : ''
                   }`}
-                 onClick={() => setSelectedEventIndex(index)}
-                  >
-                 Date: {event.date.toDateString()} - Note: {event.note}
-                 </li>
-                 ))}
-              </ul>
+                  onClick={() => setSelectedEventIndex(index)}
+                >
+                  Date: {event.date.toDateString()} - Note: {event.note}
+                </li>
+              ))}
+            </ul>
               </div>
           </div>
         </div>
