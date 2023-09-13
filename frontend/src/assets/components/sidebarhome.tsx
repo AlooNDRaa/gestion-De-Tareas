@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { AiFillHome } from 'react-icons/ai';
+import { FaUserFriends } from 'react-icons/fa';
 import { ImStatsDots } from 'react-icons/im';
 import {BsFillCalendarFill} from 'react-icons/bs';
 import { AiFillStar } from 'react-icons/ai';
@@ -18,6 +19,7 @@ function SideBar({theme}) {
         {title: 'Home', icon: <AiFillHome/>, path: '/home'},
         {title: 'Statistics', icon: <ImStatsDots/>, path: '/stats'},
         {title: 'Calendar', icon: <BsFillCalendarFill/>, path: '/calendar'},
+        {title: 'About us', icon: <FaUserFriends/>, path: '/about-us'},
         {title: 'Favorites', 
         icon: <AiFillStar/>,
         spacing: true, 
