@@ -9,15 +9,15 @@ function Seccion2() {
 
 
   return (
-    <>
+    <div className={`${ theme ? 'text-darkmode-verdeagua1' : 'text-lightmode-azul'}`}>
       <NavBar theme={theme} changeTheme={() => {setTheme(!theme)}} />
       <NavBarMobile />
       <Subheader theme={theme} />
-      <div className="flex h-screen">
+      <div className={`${ theme ? 'bg-darkmode-azul1 text-darkmode-verdeagua1' : 'bg-lightmode-blanco text-lightmode-azul'} flex h-screen`}>
         <SideBar theme={theme}/>
         <TaskManager theme={theme} />
         </div>
-    </>
+    </div>
   );
 }
 

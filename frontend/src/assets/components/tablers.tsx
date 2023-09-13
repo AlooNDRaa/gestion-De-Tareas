@@ -102,14 +102,14 @@ const TaskManager: React.FC<TaskManagerProps> = (props) => {
   };
 
   return (
-    <div className={`${props.className} ${props.theme ? 'bg-darkmode-azul1 text-darkmode-verdeagua1' : 'bg-lightmode-blanco text-lightmode-azul' } overflow-x-auto h-screen`}>
+    <div className={`${props.className} overflow-x-auto h-screen`}>
       <div className="flex w-full">
         <DragDropContext onDragEnd={onDragEnd}>
           <div className='w-auto'>
             <div className="overflow-x">
               <div className="flex">
                 {lists.map((list, listIndex) => (
-                  <div key={listIndex} className="bg-[#000] w-auto text-[#1F4287] rounded-md p-4 m-7">
+                  <div key={listIndex} className={`${props.theme ? 'bg-[#FFFFDD] text-darkmode-verdeagua1' : 'bg-[#91C8E4] text-lightmode-azul'} w-auto rounded-md p-4 m-7`}>
                     {editableListIndex === listIndex ? (
                       <div className='List-name flex pb-2'>
                         <input
@@ -144,7 +144,7 @@ const TaskManager: React.FC<TaskManagerProps> = (props) => {
                           {list.tasks.map((task, taskIndex) => (
                             <Draggable key={task.id} draggableId={task.id} index={taskIndex}>
                               {(provided) => (
-                                <li className='text-[#1F4287] bg-[#F1F0E8] rounded-lg'
+                                <li className='text-[#1F4287] mb-3 p-1 bg-[#F1F0E8] rounded-lg'
                                   ref={provided.innerRef}
                                   {...provided.draggableProps}
                                   {...provided.dragHandleProps}
@@ -184,7 +184,7 @@ const TaskManager: React.FC<TaskManagerProps> = (props) => {
                     <button className='text-xs' onClick={() => handleRemoveList(listIndex)}> Delete </button>
                   </div>
                 ))}
-                <div className="flex h-14 items-center rounded-md p-9 m-7 bg-[#CFF5E7]">
+                <div className={`flex h-14 items-center rounded-md p-9 m-7 ${props.theme ? 'bg-[#FFFFDD] text-darkmode-verdeagua1' : 'bg-[#91C8E4] text-lightmode-azul'} `}>
                   <button className='flex items-center p-2 text-[#1F4287]' onClick={handleAddList}>+ Add List</button>
                 </div>
               </div>

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
-import { AiOutlineMore, AiOutlineStar } from "react-icons/ai";
-import { BiColor } from "react-icons/bi";
+import { AiOutlineStar } from "react-icons/ai";
+
 
 interface SubheaderProps {
   className?: string;
-  theme: boolean; // Propiedad para el tema
+  theme: boolean; 
 }
 
 const Subheader: React.FC<SubheaderProps> = (props) => {
@@ -48,7 +48,7 @@ const Subheader: React.FC<SubheaderProps> = (props) => {
   };
 
   return (
-    <div className={`${props.className} ${props.theme ? 'bg-[#183D3D] text-darkmode-verdeagua1' : 'bg-[#A0E4CB] text-lightmode-azul'} flex w-full justify-between items-center h-9 pl-5 `}>
+    <div className={`${props.className} ${props.theme ? 'bg-[#053B50] text-darkmode-verdeagua1' : 'bg-[#91C8E4] text-lightmode-azul'} flex bg-opacity-70 text-[14px] w-full justify-between items-center h-9 pl-5 `}>
       {isEditing ? (
         <input
           type="text"
@@ -63,10 +63,8 @@ const Subheader: React.FC<SubheaderProps> = (props) => {
           {errorMessage || boardName}
         </h4>
       )}
-      <div className={`flex gap-3 `}>
-        <span className="icon"><BiColor /></span>
+      <div className={`flex gap-3 m-2 `}>
         <span className="icon"><AiOutlineStar /></span>
-        <span className="icon"><AiOutlineMore /></span>
       </div>
     </div>
   );
