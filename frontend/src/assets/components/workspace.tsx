@@ -23,13 +23,13 @@ function Workspace({wksp, deleteWorkspace, editWorkspace, editName, theme} ) {
 
             <div className='flex items-center pb-2'>
                 {wksp.isEditing ? (<ChangeName editName={editName} wksp={wksp} theme={theme}/>) : <h2>{wksp.title}</h2>}
-                <span className='px-1 pl-2 cursor-pointer' onClick={() => editWorkspace(wksp.title)}>{!wksp.isEditing && <AiFillEdit className={`${theme ? 'text-darkmode-verdeagua1' : 'text-lightmode-azul'}`}/>}</span>
-                <span className='px-1 cursor-pointer' onClick={() => deleteWorkspace(wksp.title)}> <MdDelete className={`${theme ? 'text-darkmode-verdeagua1' : 'text-lightmode-azul'}`}/></span>
+                <span className='px-1 pl-2 cursor-pointer' onClick={() => editWorkspace(wksp.title)}>{!wksp.isEditing && <AiFillEdit className={`${theme ? 'text-[#C6EDF6]' : 'text-lightmode-azul'}`}/>}</span>
+                <span className='px-1 cursor-pointer' onClick={() => deleteWorkspace(wksp.title)}> <MdDelete className={`${theme ? 'text-[#C6EDF6]' : 'text-lightmode-azul'}`}/></span>
             </div>
             <ul className={`flex flex-row gap-2 overflow-x-auto ${theme ? 'text-darkmode-verdeagua2' : 'text-lightmode-azul'} rounded-md`}>
                 {boards.slice(0).reverse().map((board, index) => <BoardHomeView name={board.name} bgcolor={board.bgcolor} key={index}/>)}
                 <li className={`w-40 h-28 shrink-0 ${theme ? 'bg-darkmode-azul1' : 'bg-lightmode-azul'} rounded-md flex flex-row text-center items-center justify-center cursor-pointer`} onClick={() => setOpenModal(!openModal)}>
-                  <FiPlus className={`text-xl text-center ${theme ? 'text-darkmode-verdeagua1' : 'text-lightmode-blanco'}`}/>
+                  <FiPlus className={`text-xl text-center ${theme ? 'text-[#C6EDF6]' : 'text-lightmode-blanco'}`}/>
                 </li>
             </ul>
         </div>

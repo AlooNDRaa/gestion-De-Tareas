@@ -17,17 +17,22 @@ import logolight from '../img/imgs/dailytasklogo2.png';
 function NavBar({theme, changeTheme}) {
     const [open, setOpen] = useState(false);
 
+    const sectionsDesktop = [
+        {name: 'Profile', icon: <FaUser/>},
+        {name: 'Help', icon: <BiSolidHelpCircle/>},
+        {name: 'Logout', icon: <MdLogout/>, path: '/login'}
+    ]
 
     return (
         <>        
-            <nav className={`${theme ? 'bg-darkmode-azul1' : 'bg-lightmode-blanco'} desktop:flex hidden text-m justify-between leading-normal content-center font-medium ${theme ? 'dark:text-darkmode-verdeagua1' : 'text-lightmode-azul'} w-screen z-20 fixed top-0`}>
+            <nav className={`${theme ? 'bg-darkmode-azul1' : 'bg-lightmode-blanco'} desktop:flex hidden text-m justify-between leading-normal content-center font-medium ${theme ? 'text-[#C6EDF6]' : 'text-lightmode-azul'} w-screen z-20 fixed top-0`}>
                 <div className='flex items-center'>
                     <img src={theme ? logodark : logolight} alt="logo" className="w-30 h-10 pl-2"/>
                     <CustomLink to='/' className='px-3 cursor-pointer'>Workspaces</CustomLink>
                     <button className={`${theme ? 'dark:bg-darkmode-verdeagua2' : 'bg-lightmode-azul'} ${theme ? 'dark:text-darkmode-azul1' : 'text-lightmode-blanco'}  px-3 rounded shadow-md hover:shadow-inner ${theme ? 'shadow-[#020D1C]' : 'shadow-[#ADDAC9]'}`}>Create</button>
                 </div>
                 
-                <div className={`flex pr-2 text-xl ${theme ? 'dark:text-darkmode-verdeagua1' : 'text-lightmode-azul'} flex-row items-center`}>
+                <div className={`flex pr-2 text-xl ${theme ? 'text-[#C6EDF6]' : 'text-lightmode-azul'} flex-row items-center`}>
                     <a className='px-2 cursor-pointer' onClick={() => {changeTheme(!theme)} }>
                         {theme ? <MdLightMode/> : <MdDarkMode/>}
                     </a>
@@ -36,10 +41,23 @@ function NavBar({theme, changeTheme}) {
                 </div>
             </nav>
             {open && (
-                <ul className={`${theme ? 'dark:bg-darkmode-azul1' : 'bg-lightmode-blanco'} ${theme ? 'dark:text-darkmode-verdeagua1' : 'text-lightmode-azul'} hidden desktop:flex flex-col absolute right-0 top-10 z-20 text-m rounded-b-lg`}>
-                    <li className='px-2 cursor-pointer'>Profile</li>
+                <ul className={`${theme ? 'dark:bg-darkmode-azul1' : 'bg-lightmode-blanco'} ${theme ? 'text-[#C6EDF6]' : 'text-lightmode-azul'} hidden desktop:flex flex-col absolute right-0 top-10 z-20 text-m rounded-b-lg py-2 text-center`}>
+                    {sectionsDesktop.map((section, index) => 
+                        (
+                            section.hasOwnProperty('path') ? (
+                                <Link key={index} to={section.path} className='flex px-2 cursor-pointer'>
+                                    <span className='px-1'>{section.icon}</span>{section.name}
+                                </Link>
+                            ) : (
+                                <li key={index} className='flex px-2 cursor-pointer'>
+                                    <span className='px-1'>{section.icon}</span>{section.name}
+                                </li>
+                            )
+                        )
+                    )}
+                    {/* <li className='px-2 cursor-pointer'>Profile</li>
                     <li className='px-2 cursor-pointer'>Help</li>
-                    <li className='px-2 cursor-pointer'>Logout</li>
+                    <li className='px-2 cursor-pointer'>Logout</li> */}
                 </ul>
             )}
         </>
@@ -63,16 +81,16 @@ function NavBarMobile({theme}) {
 
     return (
     <>  
-    <nav className={`mobile:flex hidden justify-between ${theme ? 'dark:bg-darkmode-azul1' : 'bg-lightmode-blanco'} ${theme ? 'text-darkmode-verdeagua1' : 'text-lightmode-azul'}`}>
+    <nav className={`mobile:flex hidden justify-between ${theme ? 'dark:bg-darkmode-azul1' : 'bg-lightmode-blanco'} ${theme ? 'text-[#C6EDF6]' : 'text-lightmode-azul'}`}>
        <img src={theme ? logodark : logolight} alt="logo" className="w-30 h-10 pl-2"/>
        
-       <div className={`${theme ? 'dark:text-darkmode-verdeagua1' : 'text-lightmode-azul'} flex-row items-center flex pr-2 text-xl`}>
+       <div className={`${theme ? 'dark:text-[#C6EDF6]' : 'text-lightmode-azul'} flex-row items-center flex pr-2 text-xl`}>
             <a className='px-2 cursor-pointer'><BsFillBellFill/></a>
             <a className='px-2 cursor-pointer' onClick={() => setOpen(!open)}><CgMenu/></a>
        </div>
     </nav>
     {open && (
-        <ul className={`${theme ? 'bg-darkmode-azul1' : 'bg-lightmode-blanco'} ${theme ? 'dark:text-darkmode-verdeagua1' : 'text-lightmode-azul'} desktop:hidden flex flex-col absolute right-0 text-m rounded-b-lg w-40 py-2`}>
+        <ul className={`${theme ? 'bg-darkmode-azul1' : 'bg-lightmode-blanco'} ${theme ? 'text-[#C6EDF6]' : 'text-lightmode-azul'} desktop:hidden flex flex-col absolute right-0 text-m rounded-b-lg w-40 py-2`}>
             {
                 sectionsMobile.map((section, index) => (
                     

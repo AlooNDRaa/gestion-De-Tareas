@@ -40,9 +40,9 @@ function Home() {
         <Route path='/boards' element={<Board/>}/>
        </Routes>   
       </div>
-      <div className='flex desktop:pt-5 min-h-screen'>
+      <div className='flex desktop:pt-5 min-h-screen w-screen'>
         <SideBar theme={theme}/>
-        <div className={`desktop:p-7 mobile:p-4 ${theme ? 'dark:bg-[#031124]' : 'bg-[#dff5ed]'}  ${theme ? 'dark:text-darkmode-verdeagua1' : 'text-lightmode-azul'} desktop:text-xl w-full`}>
+        <div className={`desktop:p-7 mobile:p-4 ${theme ? 'dark:bg-[#031124]' : 'bg-[#dff5ed]'}  ${theme ? 'dark:text-[#C6EDF6]' : 'text-lightmode-azul'} desktop:text-xl w-screen`}>
           <div className='py-3 z-2'>
             <h1 className=''>Opened Recently</h1>
             <ul>
@@ -52,7 +52,7 @@ function Home() {
           <div>
             <h1 className='pb-3'>Your Workspaces</h1>
             
-            {!show ? <button className={`cursor-pointer text-sm ${theme ? 'bg-darkmode-verdeagua1' : 'bg-lightmode-azul'} ${theme ? 'text-darkmode-azul2' : 'text-lightmode-blanco'} ${theme ? 'shadow-lg shadow-[#031124]' : 'shadow-lg shadow-[#dff5ed]'} p-2 rounded-md`} onClick={() => setShow(!show)}>New workspace</button> : <NameWorkspace addWorkspace={addWorkspace} close={() => setShow(!show)} theme={theme}/>}
+            {!show ? <button className={`cursor-pointer text-sm ${theme ? 'bg-[#C6EDF6]' : 'bg-lightmode-azul'} ${theme ? 'text-darkmode-azul2' : 'text-lightmode-blanco'} ${theme ? 'shadow-lg shadow-[#031124]' : 'shadow-lg shadow-[#dff5ed]'} p-2 rounded-md`} onClick={() => setShow(!show)}>New workspace</button> : <NameWorkspace addWorkspace={addWorkspace} close={() => setShow(!show)} theme={theme}/>}
 
             {workspaces.map((wksp, index) => (
               
