@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { AiOutlineMore, AiOutlineStar } from "react-icons/ai";
-import { BiColor } from "react-icons/bi";
+import { AiOutlineStar } from "react-icons/ai";
+
 
 interface SubheaderProps {
   className?: string;
+  theme: boolean; 
 }
 
 const Subheader: React.FC<SubheaderProps> = (props) => {
@@ -24,7 +25,7 @@ const Subheader: React.FC<SubheaderProps> = (props) => {
     setIsEditing(false);
     if (boardName.trim() === '') {
       setErrorMessage('Campo Necesario!!');
-      setBoardName(''); 
+      setBoardName('');
       setTimeout(() => {
         setErrorMessage('');
         setIsEditing(true);
@@ -37,37 +38,33 @@ const Subheader: React.FC<SubheaderProps> = (props) => {
       setIsEditing(false);
       if (boardName.trim() === '') {
         setErrorMessage('Campo Necesario!!');
-        setBoardName(''); 
+        setBoardName('');
         setTimeout(() => {
           setErrorMessage('');
-          setIsEditing(true); 
-        }, 2000); 
+          setIsEditing(true);
+        }, 2000);
       }
     }
   };
 
   return (
-    <div className='w-full'>
-      <div className={`flex w-full justify-between items-center bg-[#278EA5] bg-opacity-25 h-9 text-[#CAEDFF] sm:w-full pl-5 ${props.className}`}>
-        {isEditing ? (
-          <input
-            type="text"
-            value={boardName}
-            onChange={handleInputChange}
-            onBlur={handleInputBlur}
-            onKeyPress={handleInputKeyPress}
-            autoFocus
-          />
-        ) : (
-          <h4 className="flex" onClick={handleNameClick}>
-            {errorMessage || boardName}
-          </h4>
-        )}
-        <div className="flex gap-3">
-          <span className="icon"><BiColor /></span>
-          <span className="icon"><AiOutlineStar /></span>
-          <span className="icon"><AiOutlineMore /></span>
-        </div>
+    <div className={`${props.className} ${props.theme ? 'bg-[#053B50] text-darkmode-verdeagua1' : 'bg-[#91C8E4] text-lightmode-azul'} flex bg-opacity-70 text-[14px] w-full justify-between items-center h-9 pl-5 `}>
+      {isEditing ? (
+        <input
+          type="text"
+          value={boardName}
+          onChange={handleInputChange}
+          onBlur={handleInputBlur}
+          onKeyPress={handleInputKeyPress}
+          autoFocus
+        />
+      ) : (
+        <h4 className="flex" onClick={handleNameClick}>
+          {errorMessage || boardName}
+        </h4>
+      )}
+      <div className={`flex gap-3 m-2 `}>
+        <span className="icon"><AiOutlineStar /></span>
       </div>
     </div>
   );

@@ -5,6 +5,7 @@ import Seccion2 from './board';
 import Stats from './stadistics';
 import MyApp from './calendar';
 import Error from './404';
+import { AboutUsPage } from './aboutUs';
 
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
       <Route path= '/boards' element={<Seccion2/>}/>
       <Route path= '/stats' element={<Stats/>}/>
       <Route path= '/calendar' element= {<MyApp/>} />
+      <Route path='about-us' element= {<AboutUsPage/>}/>
       <Route path= '*' element= {<Error/>} /> 
       {/* Ruteo de error a otros enlaces que no sean los marcados */}
     </Routes>
