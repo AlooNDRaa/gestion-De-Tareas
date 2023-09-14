@@ -7,6 +7,7 @@ import Board from './board';
 import Stats from './stadistics';
 import MyApp from './calendar';
 import Error from './404';
+import { AboutUsPage } from './aboutUs';
 
 
 function App() {
@@ -21,11 +22,11 @@ function App() {
   }
 
   return(
-    <BrowserRouter>
+ <BrowserRouter>
     <Routes >
       <Route element={<PrivateRoutes auth={user}/>}>
         <Route path='/' element={<Home/>}/>
-        <Route path= '/board' element={<Board/>}/>
+        <Route path= '/boards' element={<Board/>}/>
         <Route path= '/stats' element={<Stats/>}/>
         <Route path= '/calendar' element= {<MyApp/>} />
       </Route>

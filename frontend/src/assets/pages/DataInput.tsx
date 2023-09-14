@@ -32,3 +32,5 @@ const DataInput = ({ onAddData, placeholder }) => {
 };
 
 export default DataInput;
+
+

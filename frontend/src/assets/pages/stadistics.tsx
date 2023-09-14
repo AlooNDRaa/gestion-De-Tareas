@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import LinesCharts from './stats';
 import { NavBar } from '../components/navbar';
 import { SideBar } from '../components/sidebarhome';
@@ -8,8 +8,19 @@ import Slider from 'react-slick';
 
 const Stats: React.FC = () => {
   const sliderRef = useRef<Slider | null>(null);
-  const [currentMonthIndex, setCurrentMonthIndex] = useState(0);
+  const [currentMonthIndex, setCurrentMonthIndex] = useState(getCurrentMonthIndex());
   const [totalHours, setTotalHours] = useState(Array(12).fill(0));
+  
+  function getCurrentMonthIndex() {
+    const currentDate = new Date();
+    return currentDate.getMonth();
+  }
+
+  useEffect(() => {
+    if (sliderRef.current) {
+      sliderRef.current.slickGoTo(currentMonthIndex);
+    }
+  }, []);
 
   const receiveHoursData = (totalHours, graphIndex) => {
     setTotalHours((prevTotalHours) => {
@@ -55,6 +66,7 @@ const Stats: React.FC = () => {
 
   return (
     <>
+      
       <NavBar theme={undefined} changeTheme={undefined} />
       <div className='flex'>
         <SideBar theme={undefined} />
