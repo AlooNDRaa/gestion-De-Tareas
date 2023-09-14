@@ -48,7 +48,7 @@ const Subheader: React.FC<SubheaderProps> = (props) => {
   };
 
   return (
-    <div className={`${props.className} ${props.theme ? 'bg-[#053B50] text-darkmode-verdeagua1' : 'bg-[#91C8E4] text-lightmode-azul'} flex bg-opacity-70 text-[14px] w-full justify-between items-center h-9 pl-5 `}>
+    <div className={`${props.className} ${props.theme ? 'bg-[#053B50] text-darkmode-blanco' : 'bg-[#91C8E4] text-lightmode-azul'} flex bg-opacity-70 text-[14px] w-full justify-between items-center h-9 pl-5 `}>
       {isEditing ? (
         <input
           type="text"

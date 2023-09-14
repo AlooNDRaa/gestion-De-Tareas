@@ -25,7 +25,7 @@ function NavBar({theme, changeTheme}) {
 
     return (
         <>        
-            <nav className={`${theme ? 'bg-darkmode-azul1' : 'bg-lightmode-blanco'} desktop:flex hidden text-m justify-between leading-normal content-center font-medium ${theme ? 'text-[#C6EDF6]' : 'text-lightmode-azul'} w-screen z-20 fixed top-0`}>
+            <nav className={`${theme ? 'bg-darkmode-azul1' : 'bg-lightmode-blanco'} desktop:flex hidden text-m justify-between leading-normal content-center font-medium ${theme ? 'text-[#C6EDF6]' : 'text-lightmode-azul'}`}>
                 <div className='flex items-center'>
                     <img src={theme ? logodark : logolight} alt="logo" className="w-30 h-10 pl-2"/>
                     <CustomLink to='/' className='px-3 cursor-pointer'>Workspaces</CustomLink>

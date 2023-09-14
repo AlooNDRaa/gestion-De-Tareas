@@ -40,9 +40,9 @@ function Home() {
         <Route path='/boards' element={<Board/>}/>
        </Routes>   
       </div>
-      <div className='flex desktop:pt-5 min-h-screen w-screen'>
+      <div className={`flex min-h-screen w-full ${theme ? 'dark:bg-[#031124]' : 'bg-lightmode-blanco' }`}>
         <SideBar theme={theme}/>
-        <div className={`desktop:p-7 mobile:p-4 ${theme ? 'dark:bg-[#031124]' : 'bg-[#dff5ed]'}  ${theme ? 'dark:text-[#C6EDF6]' : 'text-lightmode-azul'} desktop:text-xl w-screen`}>
+        <div className={`desktop:p-7 mobile:p-4  ${theme ? 'text-[#C6EDF6]' : 'text-lightmode-azul'} desktop:text-xl w-screen`}>
           <div className='py-3 z-2'>
             <h1 className=''>Opened Recently</h1>
             <ul>

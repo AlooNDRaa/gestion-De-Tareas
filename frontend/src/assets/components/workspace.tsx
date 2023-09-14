@@ -73,7 +73,7 @@ function ChangeName({editName, theme, wksp}) {
 
         setNewTitle('')
 
-        wksp.isEditing = false;
+        wksp.isEditing = true;
     }
 
     return (
