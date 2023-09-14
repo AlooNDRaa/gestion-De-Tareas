@@ -59,9 +59,9 @@ const MyApp: React.FC = () => {
         <SideBar theme={theme}/>
         <div className='flex justify-center  m-auto'>
         <Calendar
-  onChange={onChange}
-  value={value}
-  tileContent={({ date, view }) => {
+            onChange={onChange}
+             value={value}
+             tileContent={({ date, view }) => {
     // Verifica si hay notas para esta fecha
     const hasNotes = events.some(event => event.date.toDateString() === date.toDateString());
 
