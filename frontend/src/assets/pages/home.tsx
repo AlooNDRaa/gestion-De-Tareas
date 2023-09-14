@@ -52,7 +52,7 @@ function Home() {
           <div>
             <h1 className='pb-3'>Your Workspaces</h1>
             
-            {!show ? <button className={`cursor-pointer text-sm ${theme ? 'bg-[#C6EDF6]' : 'bg-lightmode-azul'} ${theme ? 'text-darkmode-azul2' : 'text-lightmode-blanco'} ${theme ? 'shadow-lg shadow-[#031124]' : 'shadow-lg shadow-[#dff5ed]'} p-2 rounded-md`} onClick={() => setShow(!show)}>New workspace</button> : <NameWorkspace addWorkspace={addWorkspace} close={() => setShow(!show)} theme={theme}/>}
+            {!show ? <button className={`cursor-pointer text-sm ${theme ? 'bg-darkmode-verdeagua2' : 'bg-lightmode-azul'} ${theme ? 'text-darkmode-azul2' : 'text-lightmode-blanco'} ${theme ? 'shadow-lg shadow-[#031124]' : 'shadow-lg shadow-[#dff5ed]'} p-2 rounded-md font-semibold`} onClick={() => setShow(!show)}>New workspace</button> : <NameWorkspace addWorkspace={addWorkspace} close={() => setShow(!show)} theme={theme}/>}
 
             {workspaces.map((wksp, index) => (
               

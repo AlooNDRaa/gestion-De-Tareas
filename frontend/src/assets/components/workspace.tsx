@@ -57,7 +57,7 @@ function NameWorkspace({addWorkspace, close, theme}) {
             <input className={`${theme ? ('bg-darkmode-azul1' && 'text-darkmode-verdeagua1') : ('bg-lightmode-azul' && 'text-lightmode-verdeagua1' && 'border-lightmode-azul')} rounded-md`} type="text" name='title' value={title} onChange={(e) => {
                 setTitle(e.target.value) 
             }} required/>
-            <button className={ `${theme ? 'bg-darkmode-verdeagua1' : 'bg-lightmode-azul'} ${theme ? 'text-darkmode-azul2' : 'text-lightmode-verdeagua1'} rounded-md ml-2 p-1`} type='submit'><TiTickOutline/></button>
+            <button className={ `${theme ? 'bg-darkmode-verdeagua2' : 'bg-lightmode-azul'} ${theme ? 'text-darkmode-azul2' : 'text-lightmode-verdeagua1'} rounded-full text-center ml-2 p-1`} type='submit'><TiTickOutline/></button>
         </form>
     )
 }
@@ -82,7 +82,7 @@ function ChangeName({editName, theme, wksp}) {
             <input className={`${theme ? ('bg-darkmode-azul1' && 'text-darkmode-verdeagua1') : ('bg-lightmode-azul' && 'text-lightmode-verdeagua1' && 'border-lightmode-azul')} rounded-md`} type="text" name='title' value={newTitle} onChange={(e) => {
                 setNewTitle(e.target.value)
             }} required/>
-            <button className={ `${theme ? 'bg-darkmode-verdeagua1' : 'bg-lightmode-azul'} ${theme ? 'text-darkmode-azul2' : 'text-lightmode-verdeagua1'} rounded-md ml-2 p-1`} type='submit'><TiTickOutline/></button>
+            <button className={ `${theme ? 'bg-darkmode-verdeagua2' : 'bg-lightmode-azul'} ${theme ? 'text-darkmode-azul2' : 'text-lightmode-verdeagua1'} rounded-full ml-2 p-1`} type='submit'><TiTickOutline/></button>
         </form>
     )
 }
