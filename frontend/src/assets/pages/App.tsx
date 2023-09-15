@@ -26,7 +26,7 @@ function App() {
     <Routes >
       <Route element={<PrivateRoutes auth={user}/>}>
         <Route path='/' element={<Home/>}/>
-        <Route path= '/boards' element={<Board/>}/>
+        <Route path="/boards/:tablerosid" element={<Board />} />
         <Route path= '/stats' element={<Stats/>}/>
         <Route path= '/calendar' element= {<MyApp/>} />
         <Route path='/about-us' element={<AboutUsPage/>} />
