@@ -6,6 +6,8 @@ import { MdDelete } from 'react-icons/md';
 import { BoardModal } from './board';
 import { BoardHomeView } from './board';
 
+
+
 function Workspace({wksp, deleteWorkspace, editWorkspace, editName, theme} ) {
     const [boards, setBoards] = useState([]);
     const [openModal, setOpenModal] = useState(false);

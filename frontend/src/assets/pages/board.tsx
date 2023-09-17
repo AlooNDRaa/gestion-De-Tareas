@@ -9,7 +9,7 @@ function Seccion2() {
   const [tableros, setTableros] = useState([]);
 
   useEffect(() => {
-    fetch("/api/tableros")
+    fetch("/boards")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Error al obtener los tableros");
@@ -17,7 +17,6 @@ function Seccion2() {
         return response.json();
       })
       .then((data) => {
-        
         setTableros(data);
       })
       .catch((error) => {

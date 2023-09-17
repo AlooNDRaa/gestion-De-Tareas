@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { NavBar, NavBarMobile } from '../components/navbar';
 import { SideBar } from '../components/sidebarhome';
 import { Workspace, NameWorkspace } from '../components/workspace';
+import { v4 as uuidv4 } from 'uuid'; 
 
 function Home() {
   const [show, setShow] = useState(false);
@@ -11,8 +12,7 @@ function Home() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    // Realiza una solicitud HTTP para obtener los datos de los tableros desde tu API
-    fetch("/tableros") // Utiliza la misma ruta que configuraste en tu servidor
+    fetch("/boards")
       .then((response) => {
         if (!response.ok) {
           throw new Error("Error al obtener los tableros");
@@ -27,32 +27,63 @@ function Home() {
       });
   }, []);
 
-  // Función para crear un nuevo tablero
-  function createNewWorkspace(title, url) {
+  function createNewWorkspace(title, _url) {
     const newWorkspace = {
       title,
-      url,
-      tasks: [], // Puedes inicializar las tareas como un array vacío o según tus necesidades
+      url: uuidv4(),
+      tasks: [],
     };
 
-    // Agrega el nuevo tablero a la lista de workspaces
-    setWorkspaces([...workspaces, newWorkspace]);
+    fetch("/create-board", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newWorkspace),
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Error al crear el tablero");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log("Tablero creado:", data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
 
-    // Navega a la URL única del nuevo tablero
-    navigate(`/boards/${url}`);
+    setWorkspaces([...workspaces, newWorkspace]);
+    navigate(`/boards/${newWorkspace.url}`);
   }
+
+  useEffect(() => {
+    fetch("/boards")
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error("Error al obtener los tableros");
+        }
+        return response.json();
+      })
+      .then((data) => {
+        console.log(data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  }, []);
 
   return (
     <>
-      <NavBar theme={theme} changeTheme={() => { setTheme(!theme) }} />
+      <NavBar theme={theme} changeTheme={() => setTheme(!theme)} />
       <NavBarMobile theme={theme} />
       <div className={`flex min-h-screen w-full ${theme ? 'dark:bg-[#031124]' : 'bg-lightmode-blanco'}`}>
         <SideBar theme={theme} />
-        <div className={`desktop:p-7 mobile:p-4  ${theme ? 'text-[#C6EDF6]' : 'text-lightmode-azul'} desktop:text-xl w-screen`}>
+        <div className={`desktop:p-7 mobile:p-4 ${theme ? 'text-[#C6EDF6]' : 'text-lightmode-azul'} desktop:text-xl w-screen`}>
           <div className='py-3 z-2'>
             <h1 className=''>Opened Recently</h1>
             <ul>
-              {/* Puedes mostrar aquí los tableros abiertos recientemente si lo deseas */}
             </ul>
           </div>
           <div>
@@ -66,13 +97,18 @@ function Home() {
               </button>
             ) : (
               <NameWorkspace
-                // Pasa la función createNewWorkspace como prop
                 addWorkspace={(title, url) => createNewWorkspace(title, url)}
                 close={() => setShow(!show)}
                 theme={theme}
               />
             )}
-            {/* Resto del código... */}
+            <ul>
+              {workspaces.map((workspace) => (
+                <li key={workspace.url}>
+                  <Workspace wksp={addEventListener} deleteWorkspace={addEventListener} editWorkspace={addEventListener} editName={addEventListener} theme={theme} />
+                </li>
+              ))}
+            </ul>            
           </div>
         </div>
       </div>
