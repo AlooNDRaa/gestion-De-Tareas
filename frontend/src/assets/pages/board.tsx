@@ -1,11 +1,11 @@
 import { useState, useEffect } from 'react';
 import { SideBar } from '../components/sidebarhome';
 import Subheader from '../components/subHeader';
-import TaskManager from '../components/tablers';  // Asegúrate de que estás importando el componente correcto
+import TaskManager from '../components/tablers'; 
 import { NavBar, NavBarMobile } from '../components/navbar';
 
 function Seccion2() {
-  const [theme, setTheme] = useState(true); // true for dark (default), false for lightmode
+  const [theme, setTheme] = useState(true); 
   const [tableros, setTableros] = useState([]);
 
   useEffect(() => {

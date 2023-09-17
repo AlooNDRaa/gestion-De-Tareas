@@ -1,21 +1,41 @@
 import express from 'express';
-const app = express();
+import { readFile } from 'fs';
+import mysql from 'mysql2'; // Importa el paquete mysql2
 
+const app = express();
 
 const PORT = process.env.PORT || 3000;
 
-app.get("/", (req, res) =>{
-    res.send("Hello home Server, im so happy")
-})
+const db = mysql.createConnection({
+  host: 'localhost', 
+  user: 'root', 
+  password: 'nebulosadelvelo2023',
+  database: 'gestortareas2', 
+});
 
-app.get("/api", (req, res) => {
-    res.json({ message: "Hello from json's Server" })
-})
+db.connect((err) => {
+  if (err) {
+    console.error('Error al conectar a la base de datos:', err);
+    throw err;
+  }
+  console.log('Conectado a la base de datos MySQL');
+});
 
-app.get("/api/V1", (req, res) => {
-    res.json({ message: "Hello from V1" })
-})
+app.get("/", (_req, res) => {
+  res.send("Hello home Server, I'm so happy");
+});
 
-app.listen(PORT, () =>{
-    console.log(`Server is running on  https://localhost:${PORT}`);
-})
+app.get("/boards", (_req, res) => {
+  db.query('SELECT * FROM boards', (err, results) => {
+    if (err) {
+      console.error('Error al obtener tableros:', err);
+      res.status(500).json({ error: "Error al obtener los tableros" });
+      return;
+    }
+    res.json(results);
+  });
+});
+
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
+});
