@@ -77,7 +77,7 @@ const Stats: React.FC = () => {
         <div className='w-5/6 h-screen'>
           <div className='flex justify-around ml-10'>
             <div className='mt-8'>
-              <button className={`mr-20 rounded-lg p-1 pl-2 pr-2 cursor-auto transform scale-105 transition-transform duration-300 hover:scale-110 ${theme ? 'bg-darkmode-verdeagua2' : 'bg-lightmode-verdeagua2'}`}>Total de Horas: {totalHours[currentMonthIndex]} horas</button>
+              <button className={`mr-20 rounded-lg p-1 pl-2 pr-2 cursor-auto transform scale-105 transition-transform duration-300 hover:scale-110 ${theme ? 'bg-darkmode-verdeagua2' : 'bg-lightmode-verdeagua2'}`}>Total Hours: {totalHours[currentMonthIndex]} hours</button>
               <button className={`items-end rounded-tl-lg rounded-bl-lg p-1 mr-0.5 hover:bg-darkmode-verdeagua2 ${theme ? 'bg-darkmode-verdeagua1' : 'bg-[#4684F2]'}`}>Last Week</button>
               <button className={`items-end p-1 mr-0.5 hover:bg-darkmode-verdeagua2 ${theme ? 'bg-darkmode-verdeagua1' : 'bg-[#4684F2]'}`} onClick={handlePreviousMonth}>Last Month</button>
               <button className={`items-end rounded-br-lg rounded-tr-lg p-1 mr-20 hover:bg-darkmode-verdeagua2 ${theme ? 'bg-darkmode-verdeagua1' : 'bg-[#4684F2]'}`}>Last Year</button>
