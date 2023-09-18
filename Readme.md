@@ -17,6 +17,8 @@ Users should be able to:
 
 ![Desktop view](./frontend/src/assets/img/readmeIMG/Captura%20de%20pantalla%20(66).png)
 ![Desktopimg](./frontend/src/assets/img/readmeIMG/Captura%20de%20pantalla%20(58).png)
+![Calendarimg](./frontend/src/assets/img/readmeIMG/Foto%201.jpeg)
+![Stadisticsimg](./frontend/src/assets/img/readmeIMG/Foto%202.jpeg)
 ![ABoutimg](./frontend/src/assets/img/readmeIMG/Captura%20de%20pantalla%20(60).png)
 
 ![mobile](./frontend/src/assets/img/readmeIMG/Captura%20de%20pantalla%20(61).png)
@@ -66,6 +68,8 @@ Los usuarios deben ser capaces de:
 
 ![Desktop view](./frontend/src/assets/img/readmeIMG/Captura%20de%20pantalla%20(54).png)
 ![Desktopimg](./frontend/src/assets/img/readmeIMG/Captura%20de%20pantalla%20(58).png)
+![Calendarimg](./frontend/src/assets/img/readmeIMG/Foto%201.jpeg)
+![Stadisticsimg](./frontend/src/assets/img/readmeIMG/Foto%202.jpeg)
 ![ABoutimg](./frontend/src/assets/img/readmeIMG/Captura%20de%20pantalla%20(60).png)
 
 ![mobile](./frontend/src/assets/img/readmeIMG/Captura%20de%20pantalla%20(61).png)
