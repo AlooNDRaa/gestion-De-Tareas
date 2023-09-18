@@ -4,6 +4,7 @@ import { DragDropContext, Droppable, Draggable, DropResult } from 'react-beautif
 interface TaskManagerProps {
   className?: string;
   theme?: boolean;
+  tableros: any;
 }
 
 interface Task {

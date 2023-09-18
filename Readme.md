@@ -15,11 +15,14 @@ Users should be able to:
 
 ### Screenshots & Figma
 
-Points to change later
+![Desktop view](./frontend/src/assets/img/readmeIMG/Captura%20de%20pantalla%20(66).png)
+![Desktopimg](./frontend/src/assets/img/readmeIMG/Captura%20de%20pantalla%20(58).png)
+![ABoutimg](./frontend/src/assets/img/readmeIMG/Captura%20de%20pantalla%20(60).png)
 
-### Live Site
+![mobile](./frontend/src/assets/img/readmeIMG/Captura%20de%20pantalla%20(61).png)
+![mobile2](./frontend/src/assets/img/readmeIMG/Captura%20de%20pantalla%20(64).png)
 
--- Url: 
+
 
 ### Built with
 
@@ -28,6 +31,10 @@ Points to change later
 - JavasCript
 - Node Js
 - Typescript
+- Tailwind css
+- React 
+- Vite
+- Express 
 
 ## Authors
 
@@ -35,6 +42,7 @@ Points to change later
 - Github - [AlooNDRaa](https://github.com/AlooNDRaa)
 - Github - [FlorPereyra](https://github.com/FlorPereyra)
 - Github - [MartinaGV1](https://github.com/MartinaGV1)
+- Github - [Guillermina GB](https://github.com/Guilleggb)
 
 
 ---
@@ -56,9 +64,13 @@ Los usuarios deben ser capaces de:
 
 ### Screenshots & Figma
 
-### Sitio web 
+![Desktop view](./frontend/src/assets/img/readmeIMG/Captura%20de%20pantalla%20(54).png)
+![Desktopimg](./frontend/src/assets/img/readmeIMG/Captura%20de%20pantalla%20(58).png)
+![ABoutimg](./frontend/src/assets/img/readmeIMG/Captura%20de%20pantalla%20(60).png)
 
---url 
+![mobile](./frontend/src/assets/img/readmeIMG/Captura%20de%20pantalla%20(61).png)
+![mobile2](./frontend/src/assets/img/readmeIMG/Captura%20de%20pantalla%20(64).png)
+
 
 ### Hecho con:
 
@@ -67,6 +79,10 @@ Los usuarios deben ser capaces de:
 - JavasCript
 - Node Js
 - Typescript
+- Tailwind css
+- React 
+- Vite
+- Express 
 
 ## Autores
 
@@ -74,3 +90,5 @@ Los usuarios deben ser capaces de:
 - Github - [AlooNDRaa](https://github.com/AlooNDRaa)
 - Github - [FlorPereyra](https://github.com/FlorPereyra)
 - Github - [MartinaGV1](https://github.com/MartinaGV1)
+- Github - [Guillermina GB](https://github.com/Guilleggb)
+
