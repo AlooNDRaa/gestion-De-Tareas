@@ -6,6 +6,7 @@ import {SideBar} from '../components/sidebarhome';
 import { MdDarkMode, MdLightMode } from 'react-icons/md';
 import { FaStickyNote } from 'react-icons/fa';
 
+
 type ValuePiece = Date | null;
 
 type Value = ValuePiece | [ValuePiece, ValuePiece];
@@ -53,8 +54,8 @@ const MyApp: React.FC = () => {
 
   return (
     <div>
-      <NavBar theme={MdLightMode} changeTheme={undefined} />
-      <NavBarMobile/>
+      <NavBar theme={theme} changeTheme={() => {setTheme(!theme)}} />
+      <NavBarMobile theme={theme}/>
       <div className={`flex antialiased sans-serif ${theme ? 'dark:text-darkmode-verdeagua1' : 'text-lightmode-azul'}`}>
         <SideBar theme={theme}/>
         <div className='flex justify-center  m-auto'>
