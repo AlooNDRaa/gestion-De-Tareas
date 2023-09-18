@@ -74,7 +74,7 @@ const Stats: React.FC = () => {
       <NavBarMobile theme={theme}/>
       <div className='flex'>
         <SideBar theme={theme} />
-        <div className='w-5/6'>
+        <div className='w-5/6 h-screen'>
           <div className='flex justify-around ml-10'>
             <div className='mt-8'>
               <button className={`mr-20 rounded-lg p-1 pl-2 pr-2 cursor-auto transform scale-105 transition-transform duration-300 hover:scale-110 ${theme ? 'bg-darkmode-verdeagua2' : 'bg-lightmode-verdeagua2'}`}>Total de Horas: {totalHours[currentMonthIndex]} horas</button>
