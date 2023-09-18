@@ -91,4 +91,3 @@ Los usuarios deben ser capaces de:
 - Github - [FlorPereyra](https://github.com/FlorPereyra)
 - Github - [MartinaGV1](https://github.com/MartinaGV1)
 - Github - [Guillermina GB](https://github.com/Guilleggb)
-
