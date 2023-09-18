@@ -3,7 +3,6 @@ import Calendar from 'react-calendar';
 import "./calendar.css";
 import { NavBar, NavBarMobile } from '../components/navbar';
 import {SideBar} from '../components/sidebarhome';
-import { MdDarkMode, MdLightMode } from 'react-icons/md';
 import { FaStickyNote } from 'react-icons/fa';
 
 
@@ -56,7 +55,7 @@ const MyApp: React.FC = () => {
     <div>
       <NavBar theme={theme} changeTheme={() => {setTheme(!theme)}} />
       <NavBarMobile theme={theme}/>
-      <div className={`flex antialiased sans-serif ${theme ? 'dark:text-darkmode-verdeagua1' : 'text-lightmode-azul'}`}>
+      <div className={`flex antialiased sans-serif h-screen ${theme ? 'dark:text-darkmode-verdeagua1' : 'text-lightmode-azul'}`}>
         <SideBar theme={theme}/>
         <div className='flex justify-center  m-auto'>
           <div className='contenido-prueba flex' >
