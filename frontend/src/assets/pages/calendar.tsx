@@ -55,13 +55,14 @@ const MyApp: React.FC = () => {
     <div>
       <NavBar theme={theme} changeTheme={() => {setTheme(!theme)}} />
       <NavBarMobile theme={theme}/>
-      <div className={`flex antialiased sans-serif h-screen ${theme ? 'dark:text-darkmode-verdeagua1' : 'text-lightmode-azul'}`}>
+      <div className={`flex antialiased sans-serif h-screen ${theme ? 'bg-darkmode-azul1 text-darkmode-blanco' : 'bg-lightmode-blanco text-lightmode-azul'} ${theme ? 'dark:text-darkmode-verdeagua1' : 'text-lightmode-azul'}`}>
         <SideBar theme={theme}/>
-        <div className='flex justify-center  m-auto'>
+        <div className={'flex justify-center  m-auto '}>
           <div className='contenido-prueba flex' >
         <Calendar
             onChange={onChange}
              value={value}
+             className={`${theme ? 'dark:text-darkmode-verdeagua1' : 'text-lightmode-azul'}`}
              tileContent={({ date, view }) => {
     // Verifica si hay notas para esta fecha
     const hasNotes = events.some(event => event.date.toDateString() === date.toDateString());
