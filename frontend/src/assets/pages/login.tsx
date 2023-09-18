@@ -1,22 +1,24 @@
 import { FaFacebookF, FaLinkedinIn, FaGoogle, FaRegEnvelope } from 'react-icons/fa';
 import { MdLockOutline } from 'react-icons/md';
+import { BiAdjust } from 'react-icons/bi'
 
 export default function Login() {
   return (
-    <main className="flex text-[#CFF5E7] min-h-screen items-center justify-center p-24 text-center bg-white">
+    <main className="flex text-[#CAEDFF] min-h-screen items-center justify-center p-24 text-center bg-white">
       <div className="bg-[#1F4287] rounded-2xl shadow-2xl flex w-2/3 max-w-4xl">
         <div className="w-1/2 p-5">
           {/* Sign in */}
-          <div className='text-left bg-[#1F4287] font-bold'>
-            <span className=''>DailyTask</span>
+          <div className='text-left bg-[#1F4287] font-bold flex m-3 '>
+            <span className='mr-6'>DailyTask</span> 
+            <BiAdjust/>
           </div>
           <div className='py-10 bg-[#1F4287]'>
             <h2 className="text-3xl font-bold mb-4">Sign in to account</h2>
             <div className="border-2 w-10 h-1 border-blue-500 inline-block mb-4"></div>
             <div className='flex justify-center my-2'>
-              <a href="#" className='border-2 border-gray-200 rounded-full p-3 mx-1 hover:scale-110 transform transition hover:bg-blue-500 hover:text-white hover:border-blue-100'><FaFacebookF className='text-sm'/></a>
-              <a href="#" className='border-2 border-gray-200 rounded-full p-3 mx-1 hover:scale-110 transform transition hover:bg-blue-500 hover:text-white hover:border-blue-100'><FaLinkedinIn className='text-sm'/></a>
-              <a href="#" className='border-2 border-gray-200 rounded-full p-3 mx-1 hover:scale-110 transform transition hover:bg-blue-500 hover:text-white hover:border-blue-100'><FaGoogle className='text-sm'/></a>
+              <a href="#" className='border-2 border-gray-200 rounded-full p-3 mx-1 hover:scale-110 transform transition hover:bg-[#dafb] hover:text-white hover:border-blue-100'><FaFacebookF className='text-sm'/></a>
+              <a href="#" className='border-2 border-gray-200 rounded-full p-3 mx-1 hover:scale-110 transform transition hover:bg-[#dafb] hover:text-white hover:border-blue-100'><FaLinkedinIn className='text-sm'/></a>
+              <a href="#" className='border-2 border-gray-200 rounded-full p-3 mx-1 hover:scale-110 transform transition hover:bg-[#dafb] hover:text-white hover:border-blue-100'><FaGoogle className='text-sm'/></a>
             </div>
             {/* Social Login */}
             <p className='text-gray-400 my-3'>or use your email account</p>
