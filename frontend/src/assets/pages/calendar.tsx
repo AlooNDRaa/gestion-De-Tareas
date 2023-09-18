@@ -52,12 +52,13 @@ const MyApp: React.FC = () => {
   );
 
   return (
-    <div className='calendar-container '>
+    <div>
       <NavBar theme={MdLightMode} changeTheme={undefined} />
       <NavBarMobile/>
       <div className={`flex antialiased sans-serif ${theme ? 'dark:text-darkmode-verdeagua1' : 'text-lightmode-azul'}`}>
         <SideBar theme={theme}/>
         <div className='flex justify-center  m-auto'>
+          <div className='contenido-prueba flex' >
         <Calendar
             onChange={onChange}
              value={value}
@@ -92,7 +93,7 @@ const MyApp: React.FC = () => {
              </button>
               </div>
               <div className='container-notes flex'>
-              <ul className="notes-list" style={{ maxHeight: '300px', overflowY: 'auto' }}>
+              <ul className="notes-list" style={{ maxHeight: '300px', overflowY: 'auto', maxWidth: '250px', overflowX: 'scroll' }}>
               {selectedDateNotes.map((event, index) => (
                 <li
                   key={index}
@@ -107,6 +108,7 @@ const MyApp: React.FC = () => {
             </ul>
               </div>
           </div>
+        </div>
         </div>
     </div>
   );
