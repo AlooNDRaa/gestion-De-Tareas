@@ -15,7 +15,7 @@ Users should be able to:
 
 ### Screenshots & Figma
 
-![Desktop view](./frontend/src/assets/img/readmeIMG/Captura%20de%20pantalla%20(54).png)
+![Desktop view](./frontend/src/assets/img/readmeIMG/Captura%20de%20pantalla%20(66).png)
 ![Desktopimg](./frontend/src/assets/img/readmeIMG/Captura%20de%20pantalla%20(58).png)
 ![ABoutimg](./frontend/src/assets/img/readmeIMG/Captura%20de%20pantalla%20(60).png)
 
