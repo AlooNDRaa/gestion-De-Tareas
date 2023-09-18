@@ -194,7 +194,7 @@
   }
 
 /* Estilos para pantallas pequeñas (menos de 768px) */
-@media screen and (min-width: 301px) and (max-width: 768px) {
+@media screen and (min-width: 301px) and (max-width: 700px) {
   /* Cambia el tamaño de la fuente para pantallas pequeñas */
   .react-calendar {
     width: 80%;
@@ -215,12 +215,16 @@
 }
 
 /* Estilos para pantallas medianas (768px a 1024px) */
-@media screen and (min-width: 769px) and (max-width: 1024px) {
+@media screen and (min-width: 768px) and (max-width: 1024px) {
   /* Hacer algunos ajustes de diseño para pantallas medianas aquí */
   .react-calendar {
     width: 80%;
     height: auto;
    }
+
+   .flex {
+    flex-direction: column;
+  }
 
 }
 

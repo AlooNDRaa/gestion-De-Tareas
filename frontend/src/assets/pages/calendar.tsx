@@ -62,7 +62,7 @@ const MyApp: React.FC = () => {
         <Calendar
             onChange={onChange}
              value={value}
-             className={`${theme ? 'dark:text-darkmode-verdeagua1' : 'text-lightmode-azul'}`}
+             className={`${theme ? 'dark:text-darkmode-verdeagua1' : 'text-lightmode-azul'} `}
              tileContent={({ date, view }) => {
     // Verifica si hay notas para esta fecha
     const hasNotes = events.some(event => event.date.toDateString() === date.toDateString());
