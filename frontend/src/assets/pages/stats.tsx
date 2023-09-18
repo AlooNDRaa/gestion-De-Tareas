@@ -50,12 +50,12 @@ const LinesCharts = ({ graphIndex, onReceiveHoursData }) => {
 
   return (
     <div>
-      {/* Componente DataInput para la primera línea */}
-      <DataInput placeholder="Trabajo en Equipo"
+      {/* DataInput component for the first line */}
+      <DataInput placeholder="Teamwork"
       onAddData={(label, value) => addDataPoint(1, label, value)} />
-      {/* Componente DataInput para la segunda línea */}
+      {/* DataInput component for the second line */}
       <DataInput 
-      placeholder="Trabajo en Solitario"onAddData={(label, value) => addDataPoint(2, label, value)} />
+      placeholder="Solo Work"onAddData={(label, value) => addDataPoint(2, label, value)} />
 
       <div>
         <Line className='hover:cursor-pointer'
@@ -63,7 +63,7 @@ const LinesCharts = ({ graphIndex, onReceiveHoursData }) => {
             labels: line1Data.labels,
             datasets: [
                 {
-                    label: 'Trabajo en equipo',
+                    label: 'Teamwork',
                     data: line1Data.values,
                     tension: 0.5,
                     fill: true,
@@ -90,7 +90,7 @@ const LinesCharts = ({ graphIndex, onReceiveHoursData }) => {
                     },
                 },
                   {
-                    label: 'Trabajo en solitario',
+                    label: 'Solo work',
                     data: line2Data.values,
                     tension: 0.5,
                     fill: true,
@@ -120,20 +120,20 @@ const LinesCharts = ({ graphIndex, onReceiveHoursData }) => {
               y: {
                 beginAtZero: true,
                 grid: {
-                  color: '#7EAA92', // Cambia 'yourGridColorHere' al color que desees para las líneas de la cuadrícula
+                  color: '#7EAA92', // Change grid color
                 },
                 ticks: {
-                  color: '#000000', // Cambia 'yourTextColorHere' al color de texto que desees
+                  color: '#000000', // Change text color (x axis)
                 },
               },
               x: {
                 beginAtZero: true,
                 ticks: {
-                  color: '#000000', // Cambia 'yourTextColorHere' al color de texto que desees
+                  color: '#000000', // Change text color (y axis)
                 },
               },
             },
-            // Resto de tus opciones aquí
+            
           }}
         />
       </div>
