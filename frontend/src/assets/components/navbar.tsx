@@ -22,7 +22,7 @@ function NavBar({theme, changeTheme}) {
         {name: 'Help', icon: <BiSolidHelpCircle/>},
         {name: 'Logout', icon: <MdLogout/>, path: '/login'}
     ]
-
+// as
     return (
         <>        
             <nav className={`${theme ? 'bg-darkmode-azul1' : 'bg-lightmode-blanco'} desktop:flex hidden text-m justify-between leading-normal content-center font-medium ${theme ? 'text-[#C6EDF6]' : 'text-lightmode-azul'}`}>
