@@ -71,7 +71,7 @@ const Stats: React.FC = () => {
       <div className={`${theme ? 'bg-darkmode-azul' : 'bg-lightmode-blanco'}`}>
       <NavBar  theme={theme} changeTheme={() => {setTheme(!theme)}} />
       
-      <NavBarMobile />
+      <NavBarMobile theme={theme}/>
       <div className='flex'>
         <SideBar theme={theme} />
         <div className='w-5/6'>
