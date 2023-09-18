@@ -11,6 +11,8 @@ export default {
         "verdeagua": "#A0E4CB", 
         "verdeagua2": "#59C1BD", 
         "azul": "#0D4C92", 
+        "azul2" : "#5893D4",
+        "azul3" : "#005B96",
       },
       darkmode: {
         "azul1": "#071E3D",

@@ -43,7 +43,7 @@ const LinesCharts = ({ graphIndex, onReceiveHoursData }) => {
         });
       }
     
-    const totalHours = line1Data.values.reduce((a, b) => a + b, 0) + line2Data.values.reduce((a, b) => a + b, 0);
+    const totalHours = line1Data.values.reduce((a, b) => a + b, 0)+ line2Data.values.reduce((a, b) => a + b, 0);
     onReceiveHoursData(totalHours, graphIndex);
     }
   };
@@ -114,6 +114,26 @@ const LinesCharts = ({ graphIndex, onReceiveHoursData }) => {
                 },
             },
             ],
+          }}
+          options={{
+            scales: {
+              y: {
+                beginAtZero: true,
+                grid: {
+                  color: '#7EAA92', // Cambia 'yourGridColorHere' al color que desees para las líneas de la cuadrícula
+                },
+                ticks: {
+                  color: '#000000', // Cambia 'yourTextColorHere' al color de texto que desees
+                },
+              },
+              x: {
+                beginAtZero: true,
+                ticks: {
+                  color: '#000000', // Cambia 'yourTextColorHere' al color de texto que desees
+                },
+              },
+            },
+            // Resto de tus opciones aquí
           }}
         />
       </div>
