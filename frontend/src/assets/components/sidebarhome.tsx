@@ -16,7 +16,7 @@ function SideBar({theme}) {
     const [submenuOpen, setSubmenuOpen] = useState(false);
 
     const menus = [
-        {title: 'Home', icon: <AiFillHome/>, path: '/home'},
+        {title: 'Home', icon: <AiFillHome/>, path: '/'},
         {title: 'Statistics', icon: <ImStatsDots/>, path: '/stats'},
         {title: 'Calendar', icon: <BsFillCalendarFill/>, path: '/calendar'},
         {title: 'About us', icon: <FaUserFriends/>, path: '/about-us'},
