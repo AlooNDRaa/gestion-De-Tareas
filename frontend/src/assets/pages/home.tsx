@@ -6,15 +6,14 @@ import { Route, Routes, Link } from 'react-router-dom';
 import Stadistics from './stadistics';
 import Calendar from './calendar';
 import Board from './board';
-import { v4 as uuidv4 } from 'uuid'; // Importa la función para generar UUID
+import { v4 as uuidv4 } from 'uuid';
 
 function Home() {
   const [show, setShow] = useState(false);
   const [workspaces, setWorkspaces] = useState([]);
-  const [theme, setTheme] = useState(true); // true for dark (default), false for lightmode
+  const [theme, setTheme] = useState(true); 
 
   function addWorkspace(wksp) {
-    // Genera un UUID único para el nuevo espacio de trabajo
     const uuid = uuidv4();
     setWorkspaces([...workspaces, { title: wksp, isEditing: false, uuid }]);
   }
@@ -44,7 +43,7 @@ function Home() {
           <Route path='/home' element={<Home />} />
           <Route path='/stats' element={<Stadistics />} />
           <Route path='/calendar' element={<Calendar />} />
-          <Route path='/boards/:uuid' element={<Board />} /> {/* Ruta con un parámetro UUID */}
+          <Route path='/boards/:uuid' element={<Board />} /> 
         </Routes>
       </div>
       <div className={`flex min-h-screen w-full ${theme ? 'dark:bg-[#031124]' : 'bg-lightmode-blanco'}`}>
