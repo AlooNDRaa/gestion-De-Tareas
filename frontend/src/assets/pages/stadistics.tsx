@@ -42,8 +42,8 @@ const Stats: React.FC = () => {
   };
 
   const monthNames = [
-    'Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio',
-    'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'
+    'January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December'
   ];
 
   const handleMonthChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
@@ -57,10 +57,10 @@ const Stats: React.FC = () => {
   };
 
   const handlePreviousMonth = () => {
-    const previousMonthIndex = (currentMonthIndex - 1 + 12) % 12; // Calcula el mes anterior
-    setCurrentMonthIndex(previousMonthIndex); // Actualiza el índice del mes actual
+    const previousMonthIndex = (currentMonthIndex - 1 + 12) % 12; // Calculate the previous month
+    setCurrentMonthIndex(previousMonthIndex); // Updates the index for the current month
     if (sliderRef.current) {
-      sliderRef.current.slickGoTo(previousMonthIndex); //cambia el slider al mes anterior
+      sliderRef.current.slickGoTo(previousMonthIndex); // Change the slider to the previous month
     }
   };
 
@@ -77,11 +77,11 @@ const Stats: React.FC = () => {
         <div className='w-5/6 h-screen'>
           <div className='flex justify-around ml-10'>
             <div className='mt-8'>
-              <button className={`mr-20 rounded-lg p-1 pl-2 pr-2 cursor-auto transform scale-105 transition-transform duration-300 hover:scale-110 ${theme ? 'bg-darkmode-verdeagua2' : 'bg-lightmode-verdeagua2'}`}>Total de Horas: {totalHours[currentMonthIndex]} horas</button>
-              <button className={`items-end rounded-tl-lg rounded-bl-lg p-1 mr-0.5 hover:bg-darkmode-verdeagua2 ${theme ? 'bg-darkmode-verdeagua1' : 'bg-[#4684F2]'}`}>Semana pasada</button>
-              <button className={`items-end p-1 mr-0.5 hover:bg-darkmode-verdeagua2 ${theme ? 'bg-darkmode-verdeagua1' : 'bg-[#4684F2]'}`} onClick={handlePreviousMonth}>Mes pasado</button>
-              <button className={`items-end rounded-br-lg rounded-tr-lg p-1 mr-20 hover:bg-darkmode-verdeagua2 ${theme ? 'bg-darkmode-verdeagua1' : 'bg-[#4684F2]'}`}>Último año</button>
-              {/* barra desplegable de meses */}
+              <button className={`mr-20 rounded-lg p-1 pl-2 pr-2 cursor-auto transform scale-105 transition-transform duration-300 hover:scale-110 ${theme ? 'bg-darkmode-verdeagua2' : 'bg-lightmode-verdeagua2'}`}>Total Hours: {totalHours[currentMonthIndex]} hours</button>
+              <button className={`items-end rounded-tl-lg rounded-bl-lg p-1 mr-0.5 hover:bg-darkmode-verdeagua2 ${theme ? 'bg-darkmode-verdeagua1' : 'bg-[#4684F2]'}`}>Last Week</button>
+              <button className={`items-end p-1 mr-0.5 hover:bg-darkmode-verdeagua2 ${theme ? 'bg-darkmode-verdeagua1' : 'bg-[#4684F2]'}`} onClick={handlePreviousMonth}>Last Month</button>
+              <button className={`items-end rounded-br-lg rounded-tr-lg p-1 mr-20 hover:bg-darkmode-verdeagua2 ${theme ? 'bg-darkmode-verdeagua1' : 'bg-[#4684F2]'}`}>Last Year</button>
+              {/* Month drop down bar */}
             <select className={`items-end rounded-lg p-1 pl-2 pr-2 mr-20 hover:cursor-pointer ${theme ? 'bg-darkmode-verdeagua2' : 'bg-lightmode-verdeagua2'}`} onChange={handleMonthChange} value={monthNames[currentMonthIndex]}>
               {monthNames.map((month, index) => (
                 <option key={index} value={month}>
