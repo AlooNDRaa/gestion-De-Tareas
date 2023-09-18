@@ -46,7 +46,7 @@ function BoardHomeView({name, bgcolor}) {
 
     return (
         <>
-            <li className="w-40 h-28 rounded-md mr-3 flex flex-col cursor-pointer" style={{backgroundColor: bgcolor}}>
+            <li className="w-40 h-28 rounded-md mr-3 flex flex-col cursor-pointer shrink-0" style={{backgroundColor: bgcolor}}>
                 <div className='place-self-end pr-1 pt-1'><BsThreeDotsVertical/></div>
                 <span className='place-self-center mt-5 text-center'>{name}</span>
             </li>

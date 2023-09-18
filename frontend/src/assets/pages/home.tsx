@@ -46,7 +46,7 @@ function Home() {
           <Route path='/boards/:uuid' element={<Board />} /> 
         </Routes>
       </div>
-      <div className={`flex min-h-screen w-full ${theme ? 'dark:bg-[#031124]' : 'bg-lightmode-blanco'}`}>
+      <div className={`flex min-h-screen w-full ${theme ? 'dark:bg-[#031124]' : 'bg-[#E3F6EF]'}`}>
         <SideBar theme={theme} />
         <div className={`desktop:p-7 mobile:p-4 ${theme ? 'text-[#C6EDF6]' : 'text-lightmode-azul'} desktop:text-xl w-screen`}>
           <div className='py-3 z-2'>
