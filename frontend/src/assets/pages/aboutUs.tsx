@@ -13,7 +13,7 @@ export function AboutUsPage() {
         <>
             <div className={`${theme ? 'text-darkmode-verdeagua1' : 'text-lightmode-azul'}`}>
                 <NavBar theme={theme} changeTheme={() => { setTheme(!theme) }} />
-                <NavBarMobile />
+                <NavBarMobile theme={theme} />
                 <div className={`${theme ? 'bg-[#031124]' : 'bg-[#dff5ed]'} h-screen flex justify-between `}>
                         <div className={`grid w-1/3 p-2 ml-16 text-center`}>
                         <h1 className="text-[5rem] m-auto">About Us</h1>
@@ -41,7 +41,7 @@ export function AboutUsPage() {
                         </a>
                         </button>
                         <button className="animate-pulse hover:animate-spin">
-                          <Link to="/Home"> <GiReturnArrow   size='60px'/> </Link>
+                          <Link to="/"> <GiReturnArrow   size='60px'/> </Link>
                         </button>
                     </div>
                     </div>

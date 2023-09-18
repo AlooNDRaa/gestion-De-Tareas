@@ -26,7 +26,7 @@ const DataInput = ({ onAddData, placeholder }) => {
         value={labelValue}
         onChange={(e) => setLabelValue(e.target.value)}
       />
-      <button className='ml-2 bg-darkmode-blanco rounded-lg p-0.5 pl-0.5 pl-2 pr-2 hover:bg-darkmode-verdeagua1' onClick={addDataPoint}>Agregar Valor</button>
+      <button className='ml-2 bg-darkmode-blanco rounded-lg p-0.5 pl-0.5 pl-2 pr-2 hover:bg-darkmode-verdeagua1' onClick={addDataPoint}>Add Value</button>
     </div>
   );
 };
