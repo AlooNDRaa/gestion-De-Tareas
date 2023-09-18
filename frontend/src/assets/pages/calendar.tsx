@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import Calendar from 'react-calendar';
 import "./calendar.css";
-import { NavBar } from '../components/navbar';
+import { NavBar, NavBarMobile } from '../components/navbar';
 import {SideBar} from '../components/sidebarhome';
+import { MdDarkMode, MdLightMode } from 'react-icons/md';
+import { FaStickyNote } from 'react-icons/fa';
+
 
 type ValuePiece = Date | null;
 
@@ -13,54 +16,103 @@ type Event = {
   note: string;
 };
 
-const MyApp: React.FC= ()=> {
-  const [value, onChange] = useState<Value>(new Date());
+const MyApp: React.FC = () => {
+  const [value, onChange] = useState<Date>(new Date());
   const [note, setNote] = useState<string>("");
   const [events, setEvents] = useState<Event[]>([]);
+  const [selectedEventIndex, setSelectedEventIndex] = useState<number | null>(null);
+  const [theme, setTheme] = useState(true);
 
-  const handleDateClick = (date: Date) => {
-    // Abre un cuadro de diálogo o modal para que el usuario ingrese una nota
-    const userNote = prompt("Ingrese una nota para este día:");
+  const handleNoteInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setNote(e.target.value);
+  };
 
-    if (userNote !== null) {
-      const newEvent: Event = {
-        date,
-        note: userNote,
-      };
+  const handleAddNote = () => {
+    const newEvent: Event = {
+      date: value,
+      note,
+    };
 
-      setEvents([...events, newEvent]);
+    setEvents([...events, newEvent]);
+
+    setNote("");
+  };
+
+  const handleDeleteNote = () => {
+    if (selectedEventIndex !== null) {
+      const updatedEvents = [...events];
+      updatedEvents.splice(selectedEventIndex, 1);
+      setEvents(updatedEvents);
+      setSelectedEventIndex(null);
     }
   };
 
+  // Obtener las notas para la fecha seleccionada
+  const selectedDateNotes = events.filter((event) =>
+    event.date.toDateString() === value.toDateString()
+  );
+
   return (
     <div>
-      <NavBar theme={undefined} changeTheme={undefined}/>
-    <div className= 'flex antialiased sans-serif bg-lightmode-blanco h-screen'>
-    <SideBar theme={undefined}/>
-      <div className='flex justify-center  m-auto'>
-        <Calendar 
-          onChange={onChange}
-          value={value}
-          onClickDay={(date: Date) => handleDateClick(date)}
-          className=''
+      <NavBar theme={theme} changeTheme={() => {setTheme(!theme)}} />
+      <NavBarMobile theme={theme}/>
+      <div className={`flex antialiased sans-serif ${theme ? 'dark:text-darkmode-verdeagua1' : 'text-lightmode-azul'}`}>
+        <SideBar theme={theme}/>
+        <div className='flex justify-center  m-auto'>
+          <div className='contenido-prueba flex' >
+        <Calendar
+            onChange={onChange}
+             value={value}
+             tileContent={({ date, view }) => {
+    // Verifica si hay notas para esta fecha
+    const hasNotes = events.some(event => event.date.toDateString() === date.toDateString());
+
+    // Si hay notas, muestra el ícono de la nota
+    if (hasNotes) {
+      return <FaStickyNote className="note-icon" />;
+    }
+
+    // Si no hay notas, no muestra ningún contenido
+    return null;
+  }}
+/>
+
+        </div>
+        <div className='flex p-8 flex-col'>
+        <div className='flex justify-center bg-darkmode-verdeagua1 p-8 shadow-md rounded-lg h-32 flex-col max-w-sm'>
           
-        />
-      </div>
-      <div className='flex p-8'>
-      <div className='flex justify-center bg-lightmode-blanco p-8 shadow-md rounded-lg '>
-        <h3 className=''>Event Notes:</h3>
-        <ul className=''>
-          {events.map((event, index) => (
-            <li key={index} className= " p-4 rounded-lg shadow-md">
-              Date: {event.date.toDateString()} - Note: {event.note}
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
-    </div>
+         
+           <input className='h-4'
+             type="text"
+            value={note}
+            onChange={handleNoteInputChange}
+            placeholder="Escribe tu nota aquí"
+            />
+            <button className='boton' onClick={handleAddNote}>Agregar Nota</button>
+             <button className='boton' onClick={handleDeleteNote} disabled={selectedEventIndex === null}>
+              Eliminar Nota
+             </button>
+              </div>
+              <div className='container-notes flex'>
+              <ul className="notes-list" style={{ maxHeight: '300px', overflowY: 'auto', maxWidth: '250px', overflowX: 'scroll' }}>
+              {selectedDateNotes.map((event, index) => (
+                <li
+                  key={index}
+                  className={`flex p-4 rounded-lg shadow-md ${
+                    selectedEventIndex === index ? 'bg-darkmode-verdeagua2' : ''
+                  }`}
+                  onClick={() => setSelectedEventIndex(index)}
+                >
+                  Date: {event.date.toDateString()} - Note: {event.note}
+                </li>
+              ))}
+            </ul>
+              </div>
+          </div>
+        </div>
+        </div>
     </div>
   );
-}
+};
 
 export default MyApp;
