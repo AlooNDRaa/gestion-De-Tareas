@@ -1,35 +1,48 @@
 import { FaFacebookF, FaLinkedinIn, FaGoogle, FaRegEnvelope } from 'react-icons/fa';
 import { MdLockOutline } from 'react-icons/md';
 import { BiAdjust } from 'react-icons/bi'
+import { useState } from 'react';
 
-export default function Login() {
+export function Login() {
+  const [Theme, setTheme] = useState(true);
+
+  const changeTheme = () => {
+    setTheme(!Theme);
+  };
+
   return (
-    <main className="flex text-[#CAEDFF] min-h-screen items-center justify-center p-24 text-center bg-white">
-      <div className="bg-[#1F4287] rounded-2xl shadow-2xl flex w-2/3 max-w-4xl">
+    <>
+      <div>
+        <button className={` ${Theme ? 'bg-darkmode-azul3 text-darkmode-blanco' : 'bg-lightmode-verdeagua2 text-lightmode-blanco' } rounded-full p-2 m-8 fixed flex`}>
+          <BiAdjust
+            size='20px'
+            onClick={changeTheme}
+          />
+        </button>
+      </div>
+      <main className={`flex h-screen items-center justify-center  text-center ${Theme ? 'dark:bg-darkmode-verdeagua2' : 'bg-lightmode-blanco'} p-20`}>
+      <div className={` ${Theme ? 'bg-darkmode-azul2 text-lightmode-blanco' : 'bg-lightmode-verdeagua2 text-darkmode-azul3' } rounded-2xl shadow-2xl flex`}>
         <div className="w-1/2 p-5">
-          {/* Sign in */}
-          <div className='text-left bg-[#1F4287] font-bold flex m-3 '>
-            <span className='mr-6'>DailyTask</span> 
-            <BiAdjust/>
+          <div className='text-left font-bold items-center m-3 '>
+              <span className='mr-2'>DailyTask</span> 
           </div>
-          <div className='py-10 bg-[#1F4287]'>
+          <div className='py-10'>
             <h2 className="text-3xl font-bold mb-4">Sign in to account</h2>
-            <div className="border-2 w-10 h-1 border-blue-500 inline-block mb-4"></div>
+            <div className="border-2 w-14 h-1  inline-block mb-4"></div>
             <div className='flex justify-center my-2'>
-              <a href="#" className='border-2 border-gray-200 rounded-full p-3 mx-1 hover:scale-110 transform transition hover:bg-[#dafb] hover:text-white hover:border-blue-100'><FaFacebookF className='text-sm'/></a>
-              <a href="#" className='border-2 border-gray-200 rounded-full p-3 mx-1 hover:scale-110 transform transition hover:bg-[#dafb] hover:text-white hover:border-blue-100'><FaLinkedinIn className='text-sm'/></a>
-              <a href="#" className='border-2 border-gray-200 rounded-full p-3 mx-1 hover:scale-110 transform transition hover:bg-[#dafb] hover:text-white hover:border-blue-100'><FaGoogle className='text-sm'/></a>
+              <a  className='border-2 rounded-full p-3 mx-1 hover:scale-110 transform transition hover:bg-lightmode-verdeagua2 hover:text-darkmode-azul2 hover:animate-spin'><FaFacebookF className='text-sm'/></a>
+              <a  className='border-2 rounded-full p-3 mx-1 hover:scale-110 transform transition hover:bg-lightmode-verdeagua2 hover:text-darkmode-azul2 hover:animate-spin'><FaLinkedinIn className='text-sm'/></a>
+              <a  className='border-2 rounded-full p-3 mx-1 hover:scale-110 transform transition hover:bg-lightmode-verdeagua2 hover:text-darkmode-azul2 hover:animate-spin'><FaGoogle className='text-sm'/></a>
             </div>
-            {/* Social Login */}
-            <p className='text-gray-400 my-3'>or use your email account</p>
+            <p className=' my-3'>or use your email account</p>
             <div className='flex flex-col items-center'>
-              <div className='bg-gray-100 w-64 p-2 flex items-center mb-3'>
-                <FaRegEnvelope className='text-gray-800 m-2'/>
-                <input type="email" name='email' placeholder='Email' className='bg-gray-100 outline-none text-sm flex-1'/> {/* Fixed text-sn to text-sm */}
+              <div className='w-64 p-2 flex items-center mb-3'>
+                <FaRegEnvelope className='m-3'/>
+                <input type="email" name='email' placeholder='Email' className='outline-none rounded text-sm flex-1 text-[#000]'/> 
               </div>
-              <div className='bg-gray-100 w-64 p-2 flex items-center mb-3'>
-                <MdLockOutline className='text-gray-800 m-2'/>
-                <input type="password" name='password' placeholder='Password' className='bg-gray-100 outline-none text-sm flex-1'/> {/* Fixed text-sn to text-sm */}
+              <div className='w-64 p-2 flex items-center mb-3'>
+                <MdLockOutline className=' m-3'/>
+                <input type="password" name='password' placeholder='Password' className='outline-none rounded  text-sm flex-1 text-[#000]'/> 
               </div>
               <div className='flex justify-between w-64 mb-5'>
                 <label className='flex items-center text-xs' htmlFor=""><input type="checkbox" name='remember' className='mr-1' />Remember me</label>
@@ -37,29 +50,28 @@ export default function Login() {
               </div>
               <a
                 href="#"
-                className="bg-blue-500 text-white rounded-full px-6 py-2 font-semibold 
-                hover:bg-white hover:text-blue-500 hover:border-blue-200 border-2 border-blue-500 transition"
+                className="rounded-full px-6 py-2 font-semibold hover:bg-darkmode-azul3 hover:text-lightmode-verdeagua hover:border-lightmode-verdeagua border-2 transition"
               >
                 Sign In
               </a>
             </div>
           </div>          
         </div>
-        <div className="bg-[#278EA5] w-1/2 text-white rounded-tr-2xl rounded-br-2xl py-20 px-12">
-          {/* Sign up */}
-          <h2 className="text-3xl font-bold mb-4">Hello!</h2>
-          <div className="border-2 w-10 h-1 border-white inline-block mb-4"></div>
+        <div className={`${Theme ? 'bg-[#35A29F]' : 'bg-[#F6F4EB]'} w-1/2  rounded-tr-2xl rounded-br-2xl items-center flex flex-col py-28 px-12`}>
+          <h2 className="text-3xl font-bold mb-4">Welcome!!</h2>
+          <div className="border-2 w-10 h-1 inline-block mb-4"></div>
           <p className="mb-6">
             Fill up personal information and start your journey with us.
           </p>
           <a
             href="#"
-            className="bg-white text-blue-500 rounded-full px-6 py-2 font-semibold hover:bg-blue-500 hover:text-white hover:border-blue-100 border-2 border-white transition"
-          >
+            className="rounded-full px-6 py-2 font-semibold hover:bg-darkmode-azul3 hover:text-lightmode-verdeagua hover:border-lightmode-verdeagua border-2 transition"
+            >
             Sign Up
           </a>
         </div>
       </div>
     </main>
+    </>
   );
 }

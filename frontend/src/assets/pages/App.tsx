@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { useState } from 'react';
-import Login from './login';
+import { Login }  from './login';
 import PrivateRoutes from '../components/privateRoutes';
 import Home from './home';
 import Board from './board';
@@ -11,15 +11,15 @@ import { AboutUsPage } from './aboutUs';
 
 
 function App() {
-  const [user, setUser] = useState ({name: '', isAuthenticated: true})
+  const [user] = useState ({name: '', isAuthenticated: true})
 
-  const login = (username) => {
-    setUser({name: username, isAuthenticated: true})
-  }
+  // const login = (username) => {
+  //   setUser({name: username, isAuthenticated: true})
+  // }
   
-  const logout = () => {
-    setUser({name: '', isAuthenticated: false})
-  }
+  // const logout = () => {
+  //   setUser({name: '', isAuthenticated: false})
+  // }
 
   return(
  <BrowserRouter>
@@ -31,9 +31,8 @@ function App() {
         <Route path= '/calendar' element= {<MyApp/>} />
         <Route path='/about-us' element={<AboutUsPage/>} />
       </Route>
-      <Route path="/login" element={<Login />}/>
+      <Route path="/login" element={<Login/>}/>
       <Route path= '*' element= {<Error/>} /> 
-      {/* Ruteo de error a otros enlaces que no sean los marcados */}
     </Routes>
     </BrowserRouter>
   )
